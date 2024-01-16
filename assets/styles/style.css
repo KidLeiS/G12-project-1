@@ -1,0 +1,5 @@
+.form-title {
+    display:flex; 
+    flex-direction:column;
+    background: red;
+}
