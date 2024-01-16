@@ -14,21 +14,40 @@
   <body>
     <header>
       <h1 id="website_name">Find my Flight!</h1>
-      <!-- Search Parameters Section -->
+      <!-- Search  Section -->
       <section id="parameters"> 
         <h6>Flight Search</h6>
+        
+      <form id="searchForm" style="display:flex;">  <!-- Search  Section -->
+        <div>
+          <label for="from">From:</label>
+          <input type="text" id="from" name="from">
+        </div>
+          
+        <div>
+          <label for="to">To:</label>
+          <input type="text" id="to" name="to"> 
+        </div>
 
-      <form id="searchForm">
-            <label for="search-term-from">From:</label>
-            <input type="text" id="search-term-from" name="search-term-from">           
+        <div>
+          <label for="start">Start:</label>
+          <input type="text" id="start" name="start"> 
+        </div>
+
+        <div>
+          <label for="end">End:</label>
+          <input type="end" id="start" name="end"> 
+        </div>      
+                     
       
-
-
-            <!-- Buttons Section -->
-            <button type="button" id="searchbutton">🔍 Search</button>
+        <!-- Buttons Section -->
+        <button type="button" id="searchbutton">🔍 Search</button>
             
       </form>
       </section>
+
+      <button type="button" id="searchbutton">Button or checkbox below</button>
+      <button type="button" id="searchbutton">Button or checkbox2</button>
     </header>
     
     
