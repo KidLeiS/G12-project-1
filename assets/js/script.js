@@ -13,11 +13,11 @@ $("#searchFrom").on("submit",function(event){
 var airportName = "London+Heathrow+Airport";
 var type = "airport";
 
-var codeURL = `https://api.flightapi.io/iata/api-key?${apiKey}&name=${airportName}&type=${type}`;
+var codeURL = `https://api.flightapi.io/iata/${apiKey}/${airportName}/${type}`;
 
-fetch(codeURL)
+fetch(`https://api.flightapi.io/iata/${apiKey}?name=${airportName}&${type}`)
 .then(function(response) {
-    return response.json();
-}).then(function(data) {
+    console.log(response);
+}).then(function(data){
     console.log(data);
 });
