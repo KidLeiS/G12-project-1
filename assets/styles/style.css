@@ -1,5 +1,24 @@
-.form-title {
-    display:flex; 
-    flex-direction:column;
-    background: red;
+#mainsearch {
+    background: #fec7d7;
+    color: rgb(0, 0, 0);
 }
+
+#nameLogo {
+    background: #fec7d7;
+    color: rgb(0, 0, 0);
+}
+
+/*Styling for Switch Button  #fec7d7; */
+.form-check {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+  }
+
+  .form-check span {
+    margin-right: 42px; /* Adjust the margin as needed */
+    margin-left: 0pxx; /* Adjust the margin as needed */
+    order: -1; /* Move the span to the left */
+  }  
+  /*End of Styling for Switch Button */  
+
+
