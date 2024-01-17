@@ -1,5 +1,33 @@
 var apiKey = "65a6dfbcf70ea898ea3cbc71";
 
-var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/Economy/USD`;
 
-var codeURL = `https://api.flightapi.io/iata/api-key?name=american&type=airline`
+// Logic when the search is submitted
+$("#searchFrom").on("submit",function(event){
+    event.preventDefault();
+
+})
+
+
+
+var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${class}/${currency}`;
+var airportName = "London+Heathrow+Airport";
+var type = "airport";
+
+var codeURL = `https://api.flightapi.io/iata/${apiKey}/${airportName}/${type}`;
+
+fetch(`https://api.flightapi.io/iata/${apiKey}?name=${airportName}&${type}`)
+.then(function(response) {
+    console.log(response);
+}).then(function(data){
+    console.log(data);
+});
+
+// function for 1 way URL call
+var triggerOneway = function() {
+    fetch(oneWayURL)
+    .then(function(response) {
+    console.log(response);
+    }).then(function(data){
+        var searchResults = data.itineraries;
+    });
+}
