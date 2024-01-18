@@ -8,24 +8,9 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  
+     <!-- Link to CSS -->
     <link href="assets/styles/style.css" rel="stylesheet">
-    <!-------------- Styling for Switch Button --------------------->
-    <style>
-      .form-check {
-        display: flex;
-        align-items: center; /* Align items vertically in the center */
-      }
-    
-      .form-check span {
-        margin-right: 42px; /* Adjust the margin as needed */
-        margin-left: 0pxx; /* Adjust the margin as needed */
-        order: -1; /* Move the span to the left */
-      }    
-
-    </style>
-    <!-------------- End of Styling for Switch Button --------------------->
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </head>
   
   <body>
@@ -33,7 +18,7 @@
     <div class="container-flex" id="nameLogo"><!-- Container-flex to fill width(for background colour) -->
       <div class="container"> <!-- Container to add space at left and right -->
         <!-- Heading -->
-        <h1 id="website_name">Flight Flamingo</h1>
+        <h1 id="websiteName">Flight Flamingo</h1>
       </div>   
 
       <div class="container"> <!-- Container to add space at left and right -->
@@ -57,8 +42,8 @@
           <input id="toSearch" type="text" class="form-control" placeholder="To" aria-label="To">
           <button class="reverse_to_from">@reverse</button>
           <input id="fromSearch" type="text" class="form-control" placeholder="From" aria-label="From">
-          <input id="departSearch" type="text" class="form-control" placeholder="Depart" aria-label="Depart">
-          <input id="returnSearch" type="text" class="form-control" placeholder="Return" aria-label="Return">
+          <input id="departSearch" type="date" class="form-control" placeholder="Depart" aria-label="Depart">
+          <input id="returnSearch" type="date" class="form-control" placeholder="Return" aria-label="Return">
           <input id="adults" type="text" class="form-control" placeholder="Adults" aria-label="amountAdults">
           <input id="childs" type="text" class="form-control" placeholder="Children" aria-label="amountChildren">
           <input id="infants" type="text" class="form-control" placeholder="Infants" aria-label="amountInfants">
@@ -75,9 +60,40 @@
           </select>
           <button id="searchButton">search</button>
         </div> 
-      </div>      
-         
+      </div>  
     </div>
+  </div>
+
+ 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Test button to be removed (or second page option). Just wanted to test jQuery link with search as well. 
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Flight Prices</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Flight Price info goes here</p>
+        <p>Flight 1<span>-------------Flight prices pulled from js/jquery?</span></p>
+        <p>Flight 2<span>-------------Flight prices pulled from js/jquery?</span></p>
+        <p>Flight 2<span>-------------Flight prices pulled from js/jquery?</span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Book Holiday!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+         
+    
 
     <!-- Optional JavaScript; choose one of the two! -->    
 
