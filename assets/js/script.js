@@ -27,8 +27,8 @@ $("#searchButton").on("click",function(event){
     event.preventDefault();
     var dep = $("#fromSearch").val();
     var arr = $("#toSearch").val();
-    var depDate = $("#departSearch").val();
-    var retDate = $("#returnSearch").val();
+    var depDate = dayjs($("#departSearch").val()).format("YYYY-MM-DD");
+    var retDate = dayjs($("#returnSearch").val()).format("YYYY-MM-DD");
     var adults = $("#adults").val();
     var childs = $("#childs").val();
     var infants = $("#infants").val();
@@ -80,7 +80,7 @@ $("#searchButton").on("click",function(event){
                         stops: rawLeg.stop_count,
                         carriers: rawLeg.operating_carrier_ids,
                     };
-                    legs.push(xleg);
+                    itinerary.legs.push(xleg);
                 }
                 searchResults.push(itinerary);
                 
@@ -97,7 +97,7 @@ $("#searchButton").on("click",function(event){
         // Saving API calls
         fetch(oneWayURL)
         .then(function(response) {
-        console.log(response);
+            return response.json();
         }).then(function(data){
             rawSearchResults = data;
             for (var i = 0; i < rawSearchResults.itineraries.length; i++){
@@ -134,7 +134,7 @@ $("#searchButton").on("click",function(event){
                         stops: rawLeg.stop_count,
                         carriers: rawLeg.operating_carrier_ids,
                     };
-                    legs.push(xleg);
+                    itinerary.legs.push(xleg);
                 }
                 searchResults.push(itinerary);
                 
