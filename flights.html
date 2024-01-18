@@ -15,7 +15,7 @@
     <header>
       <div class="container">
         <div id="logo">
-          <h1>Flight Flamingo</h1>
+          <h1><a href="#">Flight Flamingo</a></h1>
           <p>For all of you flying needs!</p>
         </div>
         <section id="search-flights">
@@ -23,9 +23,26 @@
           <input type="text" class="destination" name="destination" aria-label="Destination" placeholder="Destination" />
           <input type="text" class="departdate" name="departdate" aria-label="Depart Date" placeholder="Depart Date" />
           <input type="text" class="returndate" name="returndate" aria-label="Return Date" placeholder="Return Date" />
+          <select id="flightClass" class="form-select" aria-label="Default select example">
+            <option selected value="Economy">Economy</option>
+            <option value="Premium_Economy">Premium Economy</option>
+            <option value="Business">Business</option>
+            <option value="First">First</option>
+          </select>
           <button class="search">Search</button>
         </section>
       </div>
     </header>
+    <section id="explore-more">
+      <div class="container">
+        <article>
+          <div class="info">
+            <h3>Here are the most popular flights right now!</h3>
+            <p>Other travellers are loving these destinations. Search and compare flights.</p>
+          </div>
+        </article>
+        <h2>About Us</h2>
+      </div>
+    </section>
   </body>
 </html>

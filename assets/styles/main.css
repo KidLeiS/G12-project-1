@@ -49,15 +49,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
   text-rendering: optimizeLegibility;
 }
 
 h1,
-h2 {
+h1 > a,
+h1 > a:link h2,
+h2 > a,
+h2 > a:link {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 4rem;
   line-height: 1.2;
+  color: var(--light-theme-headline);
   text-decoration: underline;
 }
 
@@ -68,20 +72,22 @@ h2 {
 }
 
 header,
-section#about-us {
+section#explore-more {
   width: 100%;
   padding: 7em;
 }
 
 header {
   background-color: var(--light-theme-background);
+  text-align: center;
 }
 
 header p {
   letter-spacing: 0.1em;
 }
 
-input {
+input,
+select {
   padding: 0.5em;
   background-color: var(--white-one);
   color: var(--blue-one);
@@ -117,4 +123,38 @@ section#search-flights {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+#explore-more article {
+  min-width: 100%;
+  height: 28.5rem;
+  background-image: url(https://images.unsplash.com/photo-1584467541268-b040f83be3fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNhbnRvcmluaSUyMG5pZ2h0fGVufDB8fDB8fHww);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: var(--light-theme-button-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: start;
+  border-radius: 0.75em;
+}
+
+#explore-more article h3 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+#explore-more article h3,
+#explore-more article p {
+}
+
+.info {
+  width: 35%;
+  margin-left: 3rem;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.75em;
 }
