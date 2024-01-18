@@ -94,7 +94,7 @@ $("#searchButton").on("click",function(event){
         //One way flight
         var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
         console.log(oneWayURL);
-        Saving API calls
+        // Saving API calls
         fetch(oneWayURL)
         .then(function(response) {
         console.log(response);
