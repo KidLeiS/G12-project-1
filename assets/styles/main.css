@@ -5,6 +5,7 @@
   --blue-one: #0e172c; /* 7 */
   --blue-two: #232946; /* 12 */
   --blue-three: #b8c1ec; /* 12 */
+  --blue-four: #d9d4e7;
   --white-one: #fffffe; /* 7 & 12 */
   --white-two: #f9f8fc; /* 7 */
 
@@ -100,13 +101,17 @@ select {
   float: left;
 }
 
+input:first-of-type {
+  border-radius: 0.2em 0 0 0.2em;
+}
+
 button,
 a.button {
   background-color: var(--light-theme-button);
   color: var(--light-theme-button-text);
   outline: none;
   border: none;
-  border-radius: 0.2em;
+  border-radius: 0 0.2em 0.2em 0;
   padding: 1.2rem 2rem;
   font-size: 1rem;
   font-weight: bold;
@@ -157,4 +162,54 @@ section#search-flights {
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0.75em;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--blue-four);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.75em;
+  margin-top: 3rem;
+  width: 32%;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 1rem;
+  padding: 0 2rem;
+}
+
+.card-info ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-info ul li {
+  margin-right: 0.5rem;
+}
+
+.card-info ul li a,
+.card-info ul li a:link {
+  text-decoration: none;
+}
+
+.card-image img {
+  width: 130px;
+  height: 100px;
+  margin-bottom: -6px;
+  border-radius: 0.75em 0 0 0.75em;
 }
