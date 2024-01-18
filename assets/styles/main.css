@@ -1,0 +1,183 @@
+/* variables */
+:root {
+  --pink-one: #fec7d7; /* 7 */
+  --pink-two: #eebbc3; /* 12 */
+
+  --blue-one: #0e172c; /* 7 */
+  --blue-two: #232946; /* 12 */
+  --blue-three: #b8c1ec; /* 12 */
+
+  --white-one: #fffffe; /* 7 & 12 */
+  --white-two: #f9f8fc; /* 7 */
+
+  /* lightmode */
+  --light-theme-background: var(--pink-one);
+  --light-theme-font: var(--blue-one);
+  --light-theme-headline: var(--blue-one);
+  --light-theme-button: var(--blue-one);
+  --light-theme-button-text: var(--white-one);
+
+  /* darkmode */
+  --dark-theme-background: var(--blue-two);
+  --dark-theme-font: var(--blue-three);
+  --dark-theme-headline: var(--white-one);
+  --dark-theme-button: var(--pink-two);
+  --dark-theme-button-text: var(--blue-two);
+}
+
+/* reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* theme */
+#lightmode {
+}
+
+#darkmode {
+}
+
+/* general styles */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  background-color: var(--white-color);
+  color: var(--black-colour);
+  display: flex;
+  line-height: 1.6;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 4rem;
+  line-height: 1.2;
+  text-decoration: underline;
+}
+
+.container {
+  width: 80%;
+  max-width: 1420px;
+  margin: 0 auto;
+}
+
+header,
+section#about-us {
+  width: 100%;
+  padding: 7em;
+}
+
+header {
+  background-color: var(--pink-colour);
+}
+
+header p {
+  letter-spacing: 0.1em;
+}
+
+input {
+  padding: 0.5em;
+  background-color: var(--white-color);
+  color: var(--black-colour);
+  outline: none;
+  border: none;
+  margin: 1em 0;
+  padding: 1em;
+  display: inline-block;
+  float: left;
+}
+
+#search-flights {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: var(--black-colour);
+  color: var(--white-color);
+  padding: 1em 3em;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  border-radius: 0.2em;
+  transition: all ease 0.1s;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  background-color: var(--purple-colour);
+}
+
+.container > p {
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5em;
+}
+
+/* about us */
+.cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.card {
+  background-color: var(--grey-colour);
+  /* padding: 4em 2em; */
+  margin: 0 0.5em;
+  max-width: 33.3%;
+}
+
+.card h3 {
+  /* margin-bottom: 2em; */
+  color: var(--white-color);
+}
+
+.card-image {
+  height: 200px;
+  max-height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+}
+
+.london {
+  background-image: url(https://images.unsplash.com/photo-1534374950034-3644ddb72710?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==);
+}
+
+.new-york {
+  background-image: url(https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?q=80&w=3094&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+.copenhagen {
+  background-image: url(https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29wZW5oYWdlbnxlbnwwfHwwfHx8MA%3D%3D);
+}
