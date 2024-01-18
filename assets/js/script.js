@@ -23,8 +23,8 @@ ftypeSelector.on("click",function(event){
 
 
 // Logic when the search is submitted
-$("#searchButton").on("click",function(event){
-    event.preventDefault();
+// $("#searchButton").on("click",function(event){
+    // event.preventDefault();
     var dep = $("#fromSearch").val();
     var arr = $("#toSearch").val();
     var depDate = $("#departSearch").val();
@@ -109,7 +109,7 @@ $("#searchButton").on("click",function(event){
 
 
 
-})
+// })
 
 
     //From Docs - link to open modal - nested in $("#searchButton").on("click",function(event)
