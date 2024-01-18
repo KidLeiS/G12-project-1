@@ -33,7 +33,7 @@ $("#searchButton").on("click",function(event){
     var infants = $("#infants").val();
     var flightClass = $("#flightClass").val();
     var currency = $("#currency").val();
-
+/*
     //Checks if the type selected is one way (false) or return (true), and generates the raw data
     if(ftypeSelector[0].checked){
         //Return flight
@@ -61,7 +61,7 @@ $("#searchButton").on("click",function(event){
         // });
 
     }
-
+*/
 
     //devFrom Docs - link to open modal - nested in $("#searchButton").on("click",function(event)
     $('#exampleModal').on('shown.bs.modal', function () {
