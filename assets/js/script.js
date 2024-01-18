@@ -63,10 +63,12 @@ $("#searchButton").on("click",function(event){
     }
 
 
+    //From Docs - link to open modal - nested in $("#searchButton").on("click",function(event)
+    $('#exampleModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
 
 })
-
-
 
 
 // var airportName = "London+Heathrow+Airport";
@@ -80,3 +82,4 @@ $("#searchButton").on("click",function(event){
 // }).then(function(data){
 //     console.log(data);
 // });
+

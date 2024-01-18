@@ -1,3 +1,7 @@
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #mainsearch {
     background: #fec7d7;
     color: rgb(0, 0, 0);  
@@ -6,6 +10,7 @@
 #nameLogo {
     background: #fec7d7;
     color: rgb(0, 0, 0);
+    
 }
 
 /*Styling for Switch Button  #fec7d7; */
@@ -24,6 +29,8 @@
   #websiteName {
     padding-top: 12%;
     text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
   }
 
 
