@@ -1,12 +1,38 @@
 var apiKey = "65a6dfbcf70ea898ea3cbc71";
-var flightType = $("#flexSwitchCheckDefault").attr("checked");
-console.log(flightType);
+var ftypeSelector = $("#flexSwitchCheckDefault");
+
+// Blacks out return date when one way is selected
+$("#returnSearch").attr("disabled",true);
+
+ftypeSelector.on("click",function(event){
+    event.stopPropagation();
+    i = ftypeSelector[0].checked
+
+    if(i) {
+        $("#returnSearch").attr("disabled",false);
+    } else {
+        $("#returnSearch").attr("disabled",true);
+    };
+
+    console.log(i);
+
+})
+
+
 
 // Logic when the search is submitted
-$("#searchFrom").on("submit",function(event){
+$("#searchButton").on("click",function(event){
     event.preventDefault();
 
-    var flightType = $("#flexSwitchCheckDefault").attr("checked");
+    //Checks if the type selected is one way (false) or return (true)
+    if(ftypeSelector[0].checked){
+
+    } else {
+        
+
+    }
+
+    var flightType = $("#flexSwitchCheckDefault");
     console.log(flightType);
 
     var dep = $("#fromSearch");
