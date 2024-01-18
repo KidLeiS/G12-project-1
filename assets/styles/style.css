@@ -1,6 +1,6 @@
 #mainsearch {
     background: #fec7d7;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);  
 }
 
 #nameLogo {
@@ -20,5 +20,10 @@
     order: -1; /* Move the span to the left */
   }  
   /*End of Styling for Switch Button */  
+
+  #websiteName {
+    padding-top: 12%;
+    text-align: center;
+  }
 
 
