@@ -1,6 +1,7 @@
 var apiKey = "65a6dfbcf70ea898ea3cbc71";
 var ftypeSelector = $("#flexSwitchCheckDefault");
 var rawSearchResults;
+var searchResults = [];
 
 // Blacks out return date when one way is selected
 $("#returnSearch").attr("disabled",true);
@@ -39,13 +40,14 @@ $("#searchButton").on("click",function(event){
         //Return flight
         var twoWayURL = `https://api.flightapi.io/roundtrip/${apiKey}/${dep}/${arr}/${depDate}/${retDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
         console.log(twoWayURL);
-        // Saving API calls
-        // fetch(twoWayURL)
-        // .then(function(response) {
-        // console.log(response);
-        // }).then(function(data){
-        //     rawSearchResults = data;
-        // });
+        // API call
+        fetch(twoWayURL)
+        .then(function(response) {
+            return response.json();
+        }).then(function(data){
+            rawSearchResults = data;
+            console.log(rawSearchResults);
+        });
 
 
     } else {
@@ -62,10 +64,52 @@ $("#searchButton").on("click",function(event){
 
     }
 
+    for (var i = 0; i < rawSearchResults.itineraries.length; i++){
+        var rawItin = rawSearchResults.itineraries[i];
+        
+        var cheapestPrice = 0;
+        var cheapestURL;
+
+        for (var k = 0; k < rawItin.pricing_options.length; k++) {
+            if (cheapestPrice === 0) {
+                cheapestPrice = rawItin.pricing_options[k].price.amount;
+                cheapestURL = rawItin.pricing_options[k].items[0].url;
+            } else if (cheapestPrice > rawItin.pricing_options[k].price.amount){
+                cheapestPrice = rawItin.pricing_options[k].price.amount;
+                cheapestURL = rawItin.pricing_options[k].items[0].url;
+            }
+        };
+
+        var itinerary = {
+            score: rawItin.score,
+            price: cheapestPrice,
+            deeplink: cheapestURL,
+            legs: [],
+        };
+
+        for (var j = 0; j < rawItin.leg_ids.length; j++){
+            var rawLeg = rawSearchResults.legs.find(o => o.id === rawItin.leg_ids[j]);
+            var xleg = {
+                origin_id: rawLeg.origin_place_id,
+                final_id: rawLeg.destination_place_id,
+                startTime: rawLeg.departure,
+                endTime: rawLeg.arrival,
+                duration: rawLeg.duration,
+                stops: rawLeg.stop_count,
+                carriers: rawLeg.operating_carrier_ids,
+            };
+            legs.push(xleg);
+        }
+        searchResults.push(itinerary);
+        
+    }
+
+    console.log(searchResults);
+    //Push search results into LocalStorage
+
 
 
 })
-
 
 
 
