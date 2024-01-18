@@ -99,10 +99,11 @@ select {
   display: inline-block;
   font-size: 1rem;
   float: left;
+  width: 20%;
 }
 
 input:first-of-type {
-  border-radius: 0.2em 0 0 0.2em;
+  border-radius: 0.75em 0 0 0.75em;
 }
 
 button,
@@ -111,7 +112,7 @@ a.button {
   color: var(--light-theme-button-text);
   outline: none;
   border: none;
-  border-radius: 0 0.2em 0.2em 0;
+  border-radius: 0 0.75em 0.75em 0;
   padding: 1.2rem 2rem;
   font-size: 1rem;
   font-weight: bold;
