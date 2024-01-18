@@ -62,8 +62,17 @@
           <input id="adults" type="text" class="form-control" placeholder="Adults" aria-label="amountAdults">
           <input id="childs" type="text" class="form-control" placeholder="Children" aria-label="amountChildren">
           <input id="infants" type="text" class="form-control" placeholder="Infants" aria-label="amountInfants">
-          <input id="flightClass" type="text" class="form-control" placeholder="Economy" aria-label="Class">
-          <input id="currency" type="text" class="form-control" placeholder="USD" aria-label="Currency">
+          <select id="flightClass" class="form-select" aria-label="Default select example">
+            <option selected value="Economy">Economy</option>
+            <option value="Premium_Economy">Premium Economy</option>
+            <option value="Business">Business</option>
+            <option value="First">First</option>
+          </select>
+          <select id="currency" class="form-select" aria-label="Default select example">
+            <option selected value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+          </select>
           <button>search</button>
         </div> 
       </div>      
