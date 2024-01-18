@@ -117,7 +117,6 @@ $("#searchButton").on("click",function(event){
         $('#myInput').trigger('focus')
     })
 
-})
 
 
 // var airportName = "London+Heathrow+Airport";
