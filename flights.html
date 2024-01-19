@@ -7,117 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- page title -->
     <title>Flight Flamingo</title>
-    <!-- internal styles -->
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <!-- external styles -->
     <link rel="stylesheet" href="assets/styles/main.css" />
   </head>
+  <!-- body -->
   <body>
-    <header>
-      <div class="container">
-        <div id="logo">
-          <h1><a href="#">Flight Flamingo</a></h1>
-          <p>For all of you flying needs!</p>
-        </div>
-        <section id="search-flights">
-          <input type="text" class="departfrom" name="departfrom" aria-label="Depart Location" placeholder="Depart Location" />
-          <input type="text" class="destination" name="destination" aria-label="Destination" placeholder="Destination" />
-          <input type="text" class="departdate" name="departdate" aria-label="Depart Date" placeholder="Depart Date" />
-          <input type="text" class="returndate" name="returndate" aria-label="Return Date" placeholder="Return Date" />
-          <select id="flightClass" class="form-select" aria-label="Default select example">
-            <option selected value="Economy">Economy</option>
-            <option value="Premium_Economy">Premium Economy</option>
-            <option value="Business">Business</option>
-            <option value="First">First</option>
-          </select>
-          <button action="submit" class="search">Search</button>
-        </section>
+    <div class="card" style="width: 18rem">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
-    </header>
-    <section id="explore-more">
-      <div class="container">
-        <article>
-          <div class="info">
-            <h3>Here are the most popular flights right now!</h3>
-            <p>Other travellers are loving these destinations. Search and compare flights.</p>
-          </div>
-        </article>
-        <section class="cards">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="London bridge" />
-            </div>
-            <div class="card-info">
-              <h4>London</h4>
-              <ul>
-                <li><a href="#">Flights</a></li>
-                <li><a href="#">Car Hires</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1564959130747-897fb406b9af?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZHVibGlufGVufDB8fDB8fHww" alt="Dublin" />
-            </div>
-            <div class="card-info">
-              <h4>Dublin</h4>
-              <ul>
-                <li><a href="#">Flights</a></li>
-                <li><a href="#">Car Hires</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1583295125721-766a0088cd3f?q=80&w=3276&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amsterdam" />
-            </div>
-            <div class="card-info">
-              <h4>Amsterdam</h4>
-              <ul>
-                <li><a href="#">Flights</a></li>
-                <li><a href="#">Car Hires</a></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section class="cards">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="London bridge" />
-            </div>
-            <div class="card-info">
-              <h4>London</h4>
-              <ul>
-                <li><a href="#">Flights</a></li>
-                <li><a href="#">Car Hires</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="London bridge" />
-            </div>
-            <div class="card-info">
-              <h4>London</h4>
-              <ul>
-                <li><a href="#">Flights</a></li>
-                <li><a href="#">Car Hires</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="London bridge" />
-            </div>
-            <div class="card-info">
-              <h4>London</h4>
-              <ul>
-                <li><a href="#">Flights</a></li>
-                <li><a href="#">Car Hires</a></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
-    </section>
+    </div>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- external js -->
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
