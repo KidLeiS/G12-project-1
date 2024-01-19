@@ -19,36 +19,67 @@
           <h1><a href="#">Flight Flamingo</a></h1>
           <p>For all of you flying needs!</p>
         </div>
-
-
-        <div class="container"> <!-- Container to add space at left and right -->
-          <!-- Form Switch-> One Way or Return  -- Top Placement -->
-          <div class="input-group mb-3" id="mainsearch">
-             <!-- col's for Spacing  ---- Could be done differently later -->
-            <p class="col"></p>
-            <p class="col"></p>
-            <p class="col"></p>
-            <div class="form-check form-switch mb-3">        
-              <div class="form-check form-switch">
-              <span>One Way</span> <!-- Move to Left of Switch-- has some CSS that adjusts text position a bit -->
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Return</label>
-            </div>
-            <p class="col"></p>        
-          </div>
-
-
-
-
         <section id="search-flights">
+
+
+            <!-- Main Input -->
+        <div class="input-group mb-3">
+            <input id="toSearch" type="text" class="form-control" placeholder="To" aria-label="To">
+                 <!--<button class="reverse_to_from">@reverse</button> -->
+            
+            <input id="fromSearch" type="text" class="" placeholder="From" aria-label="From">
+            <input id="departSearch" type="date" class="" placeholder="Depart" aria-label="Depart">
+            <input id="returnSearch" type="date" class="" placeholder="Return" aria-label="Return">
+            <input id="adults" type="text" class="" placeholder="Adults" aria-label="amountAdults">
+            <input id="childs" type="text" class="" placeholder="Children" aria-label="amountChildren">
+            <input id="infants" type="text" class="" placeholder="Infants" aria-label="amountInfants">
+            <select id="flightClass" class="" aria-label="Default select example">
+              <option selected value="Economy">Economy</option>
+              <option value="Premium_Economy">Premium Economy</option>
+              <option value="Business">Business</option>
+              <option value="First">First</option>
+            </select>
+            <select id="currency" class="form-select" aria-label="Default select example">
+              <option selected value="USD">USD</option>
+              <option value="GBP">GBP</option>
+              <option value="EUR">EUR</option>
+            </select>
+            <!--
+                 <button id="searchButton">search</button>
+            -->
+        
+            <button action="submit" class="search">Search</button>
+          </div> 
+
+<!--
+    Old Forms
+
+
+   <input id="toSearch" type="text" class="departfrom" name="departfrom" aria-label="Depart Location" placeholder="Depart Location" />
+          <input id="infants" type="text" class="" name="Infants" aria-label="amountInfants" placeholder="Infants" />
           <input id="toSearch" type="text" class="departfrom" name="departfrom" aria-label="Depart Location" placeholder="Depart Location" />
           <input id="fromSearch" class="destination" name="destination" aria-label="Destination" placeholder="Destination" />
           <input id="departSearch" type="text" class="departdate" name="departdate" aria-label="Depart Date" placeholder="Depart Date" />
           <input id="returnSearch"type="text" class="returndate" name="returndate" aria-label="Return Date" placeholder="Return Date" />
-         
-         
-       
-          <button action="submit" class="search">Search</button>
+            
+
+
+-->
+
+    
+           <!--Modal Search-->
+           <!-- Button trigger modal -->
+     
+           
+            <!-- 
+                 <button type="button" class="btn btn-secondary border-0 " data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: white; color: black; height:fit-content;">
+                Travellers  Count
+              </button>      
+                   
+          <button action="submit" class="search">Search</button> 
+
+             -->
+             
         </section>
       </div>
     </header>
