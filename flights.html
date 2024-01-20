@@ -16,30 +16,32 @@
   <body>
     <!-- header -->
     <header id="header">
-      <div class="container d-flex flex-column justify-content-center align-items-center">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center">
-          <!-- logo -->
-          <h1>Flight Flamingo</h1>
-          <p>For all of your flying needs!</p>
-        </div>
-        <!-- input form -->
-        <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
-          <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Depart From" /></div>
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Destination" /></div>
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="depart-date" aria-label="Depart Date" placeholder="Depart Date" /></div>
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="return-date" aria-label="Return From" placeholder="Return From" /></div>
-            <div class="col-xs-12 col-md-6 col-lg-2">
-              <select name="travel-class" id="travel-class" aria-label="Select Class" placeholder="Select Class">
-                <option value="economy">Economy</option>
-                <option value="premium-economy">Premium Economy</option>
-                <option value="Business-class">Business</option>
-                <option value="first-class">First Class</option>
-              </select>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-2"><button id="submit">Submit</button></div>
+      <div class="container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <div id="logo" class="d-flex flex-column justify-content-center align-items-center text-center">
+            <!-- logo -->
+            <h1>Flight Flamingo</h1>
+            <p>For all of your flying needs!</p>
           </div>
-        </form>
+          <!-- input form -->
+          <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Depart From" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Destination" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="depart-date" aria-label="Depart Date" placeholder="Depart Date" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="return-date" aria-label="Return From" placeholder="Return From" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2">
+                <select name="travel-class" id="travel-class" aria-label="Select Class" placeholder="Select Class">
+                  <option value="economy">Economy</option>
+                  <option value="premium-economy">Premium Economy</option>
+                  <option value="Business-class">Business</option>
+                  <option value="first-class">First Class</option>
+                </select>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><button id="submit">Submit</button></div>
+            </div>
+          </form>
+        </div>
       </div>
     </header>
 
