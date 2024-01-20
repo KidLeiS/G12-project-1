@@ -90,3 +90,24 @@ button {
   display: inline-block;
   width: 100%;
 }
+
+form .row > * {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* screens bigger than 576px */
+@media screen & (max-width: 576px) {
+}
+
+/* screens bigger than 768px */
+@media screen & (max-width: 768px) {
+}
+
+/* screens bigger than 992px */
+@media screen & (max-width: 992px) {
+}
+
+/* screens bigger than 1200px */
+@media screen & (max-width: 1200px) {
+}
