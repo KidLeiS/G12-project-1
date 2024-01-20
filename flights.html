@@ -14,14 +14,75 @@
   </head>
   <!-- body -->
   <body>
-    <div class="card" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <header id="header">
+      <div class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center text-center">
+          <h1>Flight Flamingo</h1>
+          <p>For all of your flying needs!</p>
+        </div>
+        <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
+          <input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Depart From" />
+          <input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Destination" />
+          <input type="date" name="depart-date" id="depart-date" aria-label="Depart Date" placeholder="Depart Date" />
+          <input type="date" name="return-date" id="return-date" aria-label="Return From" placeholder="Return From" />
+          <select name="travel-class" id="travel-class" aria-label="Select Class" placeholder="Select Class">
+            <option value="economy">Economy</option>
+            <option value="premium-economy">Premium Economy</option>
+            <option value="Business-class">Business</option>
+            <option value="first-class">First Class</option>
+          </select>
+          <button id="submit">Submit</button>
+        </form>
       </div>
-    </div>
+    </header>
+    <section id="popular-flights">
+      <div class="container">
+        <div class="text-center">
+          <h2>Popular Searches</h2>
+          <p>Other travellers are loving these destinations. Search and compare flights.</p>
+        </div>
+      </div>
+    </section>
+    <!-- about us -->
+    <section id="about-us">
+      <div class="container">
+        <div class="text-center">
+          <h2>About Us</h2>
+          <p>Here's a little something about us.</p>
+        </div>
+      </div>
+    </section>
+    <!-- contact us -->
+    <section id="contact-us">
+      <div class="container">
+        <div class="text-center">
+          <h2>Contact Us</h2>
+          <p>Need to reach us? This is the place to do so.</p>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer>
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+          </div>
+
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-muted" href="#">Home</a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#">Abous Us</a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- external js -->
