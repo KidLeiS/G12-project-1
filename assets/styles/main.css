@@ -40,7 +40,8 @@ header#header {
   padding: 3rem 0;
 }
 
-.container > div > p {
+.container > div > p,
+#contact-us p {
   letter-spacing: 0.1em;
 }
 
@@ -52,15 +53,16 @@ section#about-us {
 
 section#contact-us {
   padding: 3rem 0;
+  background-color: var(--background-colour);
 }
 
 section#popular-flights {
   padding: 3rem 0;
 }
 
-input,
-select,
-textarea {
+header input,
+header select,
+header textarea {
   float: left;
   outline: none;
   border: none;
@@ -71,16 +73,16 @@ textarea {
   background-color: var(--main-content-colour);
 }
 
-select {
+header select {
   box-sizing: border-box;
   padding: 1.21rem 0.5rem;
 }
 
-form > div.row > div:nth-of-type(1) > input {
+header form > div.row > div:nth-of-type(1) > input {
   border-radius: 0.5em 0.5em 0 0;
 }
 
-form > div.row > div:nth-of-type(5) > select {
+header form > div.row > div:nth-of-type(5) > select {
   border-radius: 0 0 0.5em 0.5em;
 }
 
@@ -117,76 +119,108 @@ button:focus,
   outline: none;
   border: none;
   border-radius: 0.5em;
+  text-align: center;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+section#contact-us lable,
+section#contact-us input,
+section#contact-us textarea {
+  display: block;
+  width: 100%;
+}
+
+section#contact-us input,
+section#contact-us textarea {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid var(--font-colour);
+  border-radius: 0.5em;
+  resize: none;
+}
+
+section#contact-us input:focus,
+section#contact-us textarea:focus {
+  outline: none;
+}
+
+footer {
+  background-color: var(--background-colour);
+}
+
+section#contact-us form {
+  text-align: start !important;
 }
 
 /* screens bigger than 576px */
 @media screen and (max-width: 576px) {
-  form > div.row > div:nth-of-type(1) > input {
+  header form > div.row > div:nth-of-type(1) > input {
     border-radius: 0.5em 0.5em 0 0;
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  header form > div.row > div:nth-of-type(5) > select {
     border-radius: 0 0 0.5em 0.5em;
   }
 }
 
 /* screens bigger than 768px */
 @media screen and (min-width: 768px) {
-  form .row > * {
+  header form .row > * {
     padding-right: 0;
     padding-left: 0;
   }
 
-  form > div.row > div:nth-of-type(1) > input {
+  header form > div.row > div:nth-of-type(1) > input {
     border-radius: 0.5em 0 0 0;
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(2) > input {
+  header form > div.row > div:nth-of-type(2) > input {
     border-radius: 0 0.5em 0 0;
   }
 
-  form > div.row > div:nth-of-type(3) > input {
+  header form > div.row > div:nth-of-type(3) > input {
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  header form > div.row > div:nth-of-type(5) > select {
     border-radius: 0 0 0 0.5em;
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(6) > button {
+  header form > div.row > div:nth-of-type(6) > button {
     border-radius: 0 0 0.5em 0;
   }
 }
 
 /* screens bigger than 992px */
 @media screen and (min-width: 992px) {
-  form > div.row > div:nth-of-type(1) > input {
+  header form > div.row > div:nth-of-type(1) > input {
     border-radius: 0.5em 0 0 0.5em;
     border-bottom: none;
   }
 
-  form > div.row > div:nth-of-type(2) > input {
+  header form > div.row > div:nth-of-type(2) > input {
     border-radius: 0;
     border-bottom: none;
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(3) > input,
-  form > div.row > div:nth-of-type(4) > input {
+  header form > div.row > div:nth-of-type(3) > input,
+  header form > div.row > div:nth-of-type(4) > input {
     border-bottom: none;
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  header form > div.row > div:nth-of-type(5) > select {
     border-radius: 0;
     border-bottom: none;
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(6) > button {
+  header form > div.row > div:nth-of-type(6) > button {
     border-radius: 0 0.5em 0.5em 0;
   }
 
@@ -203,16 +237,17 @@ button:focus,
     padding: 5rem 0;
   }
 
-  section#about-us {
-    padding: 5rem 0;
-  }
-
+  section#about-us,
+  section#popular-flights,
   section#contact-us {
     padding: 5rem 0;
+    text-align: start;
   }
 
-  section#popular-flights {
-    padding: 5rem 0;
+  section#about-us > div > div,
+  section#popular-flights > div > div,
+  section#contact-us > div > div {
+    text-align: start;
   }
 }
 
@@ -231,15 +266,16 @@ button:focus,
     padding: 7rem 0;
   }
 
-  section#about-us {
-    padding: 7rem 0;
-  }
-
+  section#about-us,
+  section#popular-flights,
   section#contact-us {
-    padding: 7rem 0;
+    padding: 10rem 0;
+    text-align: start !important;
   }
 
-  section#popular-flights {
-    padding: 10rem 0;
+  section#about-us > div > div,
+  section#popular-flights > div > div,
+  section#contact-us > div > div {
+    text-align: start !important;
   }
 }
