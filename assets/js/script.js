@@ -2,13 +2,6 @@ var apiKey = "65a6dfbcf70ea898ea3cbc71";
 var ftypeSelector = $("#flexSwitchCheckDefault");
 var rawSearchResults;
 
-$(document).ready(function(){
-    $("#numberTravellersInput").click(function(){
-      $("#exampleModal").modal();
-      console.log("modal should open");
-    });
-    
-  });
 
 
 // Blacks out return date when one way is selected
