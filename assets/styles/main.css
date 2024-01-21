@@ -288,18 +288,34 @@ section#about-us .card {
   margin-top: 1em;
 }
 
+form > div.row > div:nth-of-type(1) > input {
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+form > div.row > div:nth-of-type(5) > input {
+  border-radius: 0 0 0.5em 0.5em;
+  border-bottom: none;
+}
+
+form > div.row > div:nth-of-type(6) > button {
+  border-radius: 0.5em;
+  margin-top: 1em;
+}
+
 /* screens bigger than 576px */
 @media screen and (max-width: 576px) {
-  header form > div.row > div:nth-of-type(1) > input {
+  form > div.row > div:nth-of-type(1) > input {
     border-radius: 0.5em 0.5em 0 0;
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  form > div.row > div:nth-of-type(5) > input {
     border-radius: 0 0 0.5em 0.5em;
+    border-bottom: none;
   }
 
-  form > div.row > div:nth-of-type(6) > input {
-    border-radius: 0 0 0em 0em;
+  form > div.row > div:nth-of-type(6) > button {
+    border-radius: 0.5em;
+    margin-top: 1em;
   }
 
   section#popular-flights #london,
@@ -338,13 +354,15 @@ section#about-us .card {
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  form > div.row > div:nth-of-type(5) > input {
     border-radius: 0 0 0 0.5em;
+    border-bottom: none;
     border-right: 1px solid var(--font-colour);
   }
 
   header form > div.row > div:nth-of-type(6) > button {
     border-radius: 0 0 0.5em 0;
+    margin-top: 0;
   }
 
   section#popular-flights #london,
