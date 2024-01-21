@@ -151,8 +151,8 @@ section#contact-us textarea {
   resize: none;
 }
 
-section#contact-us input:focus,
-section#contact-us textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 
