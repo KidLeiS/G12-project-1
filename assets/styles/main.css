@@ -61,6 +61,11 @@ section#popular-flights {
   padding: 3rem 0;
 }
 
+section#faq {
+  padding: 3rem 0;
+  background-color: var(--purple-one);
+}
+
 input:focus,
 textarea:focus {
   outline: none;
@@ -440,6 +445,7 @@ form > div.row > div:nth-of-type(6) > button {
 
   section#about-us,
   section#popular-flights,
+  section#faq,
   section#contact-us {
     padding: 5rem 0;
     text-align: start;
@@ -447,6 +453,7 @@ form > div.row > div:nth-of-type(6) > button {
 
   section#about-us > div > div,
   section#popular-flights > div > div,
+  section#faq > div > div,
   section#contact-us > div > div {
     text-align: start;
   }
@@ -493,6 +500,7 @@ form > div.row > div:nth-of-type(6) > button {
 
   section#about-us,
   section#popular-flights,
+  section#faq,
   section#contact-us {
     padding: 10rem 0;
     text-align: start !important;
@@ -500,6 +508,7 @@ form > div.row > div:nth-of-type(6) > button {
 
   section#about-us > div > div,
   section#popular-flights > div > div,
+  section#faq > div > div,
   section#contact-us > div > div {
     text-align: start !important;
   }
