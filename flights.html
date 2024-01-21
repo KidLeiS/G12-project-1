@@ -140,34 +140,31 @@
           <h2>About Us</h2>
           <p>Here's a little something about us.</p>
           <article class="d-flex flex-column justify-content-center align-items-center">
-            <div class="row">
+            <div class="row w-100">
               <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="card">
-                  <img src="assets/images/avatars/curtis.jpg" class="card-img-top" alt="..." />
+                <div class="card d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-head" id="dev-curtis"></div>
                   <div class="card-body">
-                    <h4 class="card-title">Curtis Bowen</h4>
-                    <p class="card-text">I'm Curtis. An aspiring frontend developer from the UK. Myself along side of two others have created this app for an EdX challenge!</p>
-                    <a href="#" class="button">Visit Portfolio</a>
+                    <h4 class="card-title fw-bold">Curtis Bowen</h4>
+                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="Hi there! I'm Curtis, an aspiring frontend developer from the UK.">Visit Portfolio</a>
                   </div>
                 </div>
               </div>
               <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="card">
-                  <img src="assets/images/avatars/adrian.jpg" class="card-img-top" alt="..." />
+                <div class="card d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-head" id="dev-adrian"></div>
                   <div class="card-body">
-                    <h5 class="card-title">Adrian Lamour</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="button">Visit Portfolio</a>
+                    <h4 class="card-title fw-bold">Adrian Lamour</h4>
+                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="EDIT ME...">Visit Portfolio</a>
                   </div>
                 </div>
               </div>
               <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="card">
-                  <img src="assets/images/avatars/eric.png" class="card-img-top" alt="..." />
+                <div class="card d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-head" id="dev-eric"></div>
                   <div class="card-body">
-                    <h5 class="card-title">Eric Shen</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="button">Visit Portfolio</a>
+                    <h4 class="card-title fw-bold">Eric Shen</h4>
+                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="EDIT ME...">Visit Portfolio</a>
                   </div>
                 </div>
               </div>
@@ -237,6 +234,10 @@
           $('#travellersModal').modal('show');
           console.log('modal should open');
         });
+      });
+
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
       });
     </script>
   </body>

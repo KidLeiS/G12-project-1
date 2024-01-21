@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* general styles */
@@ -221,6 +222,27 @@ section#popular-flights #prague {
 
 section#popular-flights #copenhagen {
   background-image: url('../images/destinations/copenhagen.jpeg');
+}
+
+.card-head {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 10em;
+  height: 10em;
+  margin: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#dev-curtis {
+  background-image: url('../images/avatars/curtis.jpg');
+}
+#dev-adrian {
+  background-image: url('../images/avatars/adrian.jpg');
+}
+#dev-eric {
+  background-image: url('../images/avatars/eric.png');
 }
 
 /* screens bigger than 576px */
