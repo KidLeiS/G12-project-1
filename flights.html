@@ -30,20 +30,43 @@
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Destination" /></div>
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="depart-date" aria-label="Depart Date" placeholder="Depart Date" /></div>
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="return-date" aria-label="Return From" placeholder="Return From" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2">
-                <select name="travel-class" id="travel-class" aria-label="Select Class" placeholder="Select Class">
-                  <option value="economy">Economy</option>
-                  <option value="premium-economy">Premium Economy</option>
-                  <option value="Business-class">Business</option>
-                  <option value="first-class">First Class</option>
-                </select>
-              </div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Travel Class" placeholder="Travellers & Class" /></div>
               <div class="col-xs-12 col-md-6 col-lg-2"><button id="submit">Submit</button></div>
             </div>
           </form>
         </div>
       </div>
     </header>
+
+    <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="travellersModalLabel">Travellers & Class</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- input form -->
+            <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
+              <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12"><input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Adults" /></div>
+                <div class="col-xs-12 col-md-12 col-lg-12"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Children" /></div>
+                <div class="col-xs-12 col-md-12 col-lg-12"><input type="text" name="destination" id="destination" aria-label="Infants" placeholder="Infants" /></div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <select name="travel-class" id="travel-class" aria-label="Select Class" placeholder="Select Class">
+                    <option value="economy">Economy</option>
+                    <option value="premium-economy">Premium Economy</option>
+                    <option value="Business-class">Business</option>
+                    <option value="first-class">First Class</option>
+                  </select>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-12"><button id="submit">Submit</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- popular flights -->
     <section id="popular-flights">
@@ -146,9 +169,20 @@
       </div>
     </footer>
 
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- external js -->
     <script src="assets/js/script.js"></script>
+    <!-- modal script -->
+    <script>
+      $(document).ready(function () {
+        $('#numberTravellersInput').click(function () {
+          $('#travellersModal').modal('show');
+          console.log('modal should open');
+        });
+      });
+    </script>
   </body>
 </html>
