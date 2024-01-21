@@ -60,6 +60,11 @@ section#popular-flights {
   padding: 3rem 0;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 header input,
 header select,
 header textarea {
@@ -151,17 +156,71 @@ section#contact-us textarea {
   resize: none;
 }
 
-input:focus,
-textarea:focus {
-  outline: none;
-}
-
 footer {
   background-color: var(--background-colour);
 }
 
 section#contact-us form {
   text-align: start !important;
+}
+
+section#popular-flights .popular-destination {
+  width: 100%;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5em;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  /* background-color: red; */
+}
+
+section#popular-flights #london {
+  background-image: url('../images/destinations/london.jpeg');
+}
+
+section#popular-flights #new-york {
+  background-image: url('../images/destinations/new-york.jpeg');
+}
+
+section#popular-flights #berlin {
+  background-image: url('../images/destinations/berlin.jpeg');
+}
+
+section#popular-flights #rome {
+  background-image: url('../images/destinations/rome.jpeg');
+}
+
+section#popular-flights #barcelona {
+  background-image: url('../images/destinations/barcelona.jpeg');
+}
+
+section#popular-flights #edinburgh {
+  background-image: url('../images/destinations/endinburgh.jpeg');
+}
+
+section#popular-flights #paris {
+  background-image: url('../images/destinations/paris.jpeg');
+}
+
+section#popular-flights #belfast {
+  background-image: url('../images/destinations/belfast.jpeg');
+}
+
+section#popular-flights #dublin {
+  background-image: url('../images/destinations/dublin.jpeg');
+}
+
+section#popular-flights #amsterdam {
+  background-image: url('../images/destinations/amsterdam.jpeg');
+}
+
+section#popular-flights #prague {
+  background-image: url('../images/destinations/prague.jpeg');
+}
+
+section#popular-flights #copenhagen {
+  background-image: url('../images/destinations/copenhagen.jpeg');
 }
 
 /* screens bigger than 576px */
