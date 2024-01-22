@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* general styles */
@@ -58,6 +59,16 @@ section#contact-us {
 
 section#popular-flights {
   padding: 3rem 0;
+}
+
+section#faq {
+  padding: 3rem 0;
+  background-color: var(--purple-one);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
 }
 
 header input,
@@ -114,6 +125,16 @@ button:focus,
   cursor: pointer;
 }
 
+#travellersModal input,
+#travellersModal select {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--font-colour);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 .card {
   background-color: var(--purple-one);
   outline: none;
@@ -141,11 +162,6 @@ section#contact-us textarea {
   resize: none;
 }
 
-section#contact-us input:focus,
-section#contact-us textarea:focus {
-  outline: none;
-}
-
 footer {
   background-color: var(--background-colour);
 }
@@ -154,18 +170,172 @@ section#contact-us form {
   text-align: start !important;
 }
 
+section#popular-flights .popular-destination {
+  width: 100%;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5em;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  position: relative;
+  transition: all ease 0.1s;
+}
+
+section#popular-flights .popular-destination:hover,
+section#popular-flights .popular-destination:focus {
+  transform: scale(1.05);
+}
+
+section#popular-flights .popular-destination::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: var(--button-font-colour);
+  padding: 0.25em 1em;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  border-radius: 0 0.5em 0 0.5em;
+}
+
+section#popular-flights #london {
+  background-image: url('../images/destinations/london.jpeg');
+}
+
+section#popular-flights #new-york {
+  background-image: url('../images/destinations/new-york.jpeg');
+}
+
+section#popular-flights #berlin {
+  background-image: url('../images/destinations/berlin.jpeg');
+}
+
+section#popular-flights #rome {
+  background-image: url('../images/destinations/rome.jpeg');
+}
+
+section#popular-flights #barcelona {
+  background-image: url('../images/destinations/barcelona.jpeg');
+}
+
+section#popular-flights #edinburgh {
+  background-image: url('../images/destinations/endinburgh.jpeg');
+}
+
+section#popular-flights #paris {
+  background-image: url('../images/destinations/paris.jpeg');
+}
+
+section#popular-flights #belfast {
+  background-image: url('../images/destinations/belfast.jpeg');
+}
+
+section#popular-flights #dublin {
+  background-image: url('../images/destinations/dublin.jpeg');
+}
+
+section#popular-flights #amsterdam {
+  background-image: url('../images/destinations/amsterdam.jpeg');
+}
+
+section#popular-flights #prague {
+  background-image: url('../images/destinations/prague.jpeg');
+}
+
+section#popular-flights #copenhagen {
+  background-image: url('../images/destinations/copenhagen.jpeg');
+}
+
+section#popular-flights a:hover,
+section#popular-flights a:focus {
+  background-color: red;
+  transform: scale(2);
+}
+
+.card-head {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 10em;
+  height: 10em;
+  margin: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#dev-curtis {
+  background-image: url('../images/avatars/curtis.jpg');
+}
+#dev-adrian {
+  background-image: url('../images/avatars/adrian.jpg');
+}
+#dev-eric {
+  background-image: url('../images/avatars/eric.png');
+}
+
+section#popular-flights #london,
+section#popular-flights #new-york,
+section#popular-flights #berlin,
+section#popular-flights #rome,
+section#popular-flights #barcelona,
+section#popular-flights #edinburgh,
+section#popular-flights #paris,
+section#popular-flights #belfast,
+section#popular-flights #dublin,
+section#popular-flights #amsterdam,
+section#popular-flights #prague,
+section#popular-flights #copenhagen {
+  margin-top: 1em;
+}
+
+section#about-us .card {
+  margin-top: 1em;
+}
+
+form > div.row > div:nth-of-type(1) > input {
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+form > div.row > div:nth-of-type(5) > input {
+  border-radius: 0 0 0.5em 0.5em;
+  border-bottom: none;
+}
+
+form > div.row > div:nth-of-type(6) > button {
+  border-radius: 0.5em;
+  margin-top: 1em;
+}
+
 /* screens bigger than 576px */
 @media screen and (max-width: 576px) {
-  header form > div.row > div:nth-of-type(1) > input {
+  form > div.row > div:nth-of-type(1) > input {
     border-radius: 0.5em 0.5em 0 0;
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  form > div.row > div:nth-of-type(5) > input {
     border-radius: 0 0 0.5em 0.5em;
+    border-bottom: none;
   }
 
-  form > div.row > div:nth-of-type(6) > input {
-    border-radius: 0 0 0em 0em;    
+  form > div.row > div:nth-of-type(6) > button {
+    border-radius: 0.5em;
+    margin-top: 1em;
+  }
+
+  section#popular-flights #london,
+  section#popular-flights #new-york,
+  section#popular-flights #berlin,
+  section#popular-flights #rome,
+  section#popular-flights #barcelona,
+  section#popular-flights #edinburgh,
+  section#popular-flights #paris,
+  section#popular-flights #belfast,
+  section#popular-flights #dublin,
+  section#popular-flights #amsterdam,
+  section#popular-flights #prague,
+  section#popular-flights #copenhagen {
+    margin-top: 1em;
   }
 }
 
@@ -189,13 +359,45 @@ section#contact-us form {
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  form > div.row > div:nth-of-type(5) > input {
     border-radius: 0 0 0 0.5em;
+    border-bottom: none;
     border-right: 1px solid var(--font-colour);
   }
 
   header form > div.row > div:nth-of-type(6) > button {
     border-radius: 0 0 0.5em 0;
+    margin-top: 0;
+  }
+
+  section#popular-flights #london,
+  section#popular-flights #new-york {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #berlin,
+  section#popular-flights #rome {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #barcelona,
+  section#popular-flights #edinburgh {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #paris,
+  section#popular-flights #belfast {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #dublin,
+  section#popular-flights #amsterdam {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #prague,
+  section#popular-flights #copenhagen {
+    margin-top: 1em;
   }
 }
 
@@ -218,7 +420,7 @@ section#contact-us form {
     border-right: 1px solid var(--font-colour);
   }
 
-  form > div.row > div:nth-of-type(5) > select {
+  form > div.row > div:nth-of-type(5) > input {
     border-radius: 0;
     border-bottom: none;
     border-right: 1px solid var(--font-colour);
@@ -243,6 +445,7 @@ section#contact-us form {
 
   section#about-us,
   section#popular-flights,
+  section#faq,
   section#contact-us {
     padding: 5rem 0;
     text-align: start;
@@ -250,8 +453,33 @@ section#contact-us form {
 
   section#about-us > div > div,
   section#popular-flights > div > div,
+  section#faq > div > div,
   section#contact-us > div > div {
     text-align: start;
+  }
+
+  section#popular-flights #london,
+  section#popular-flights #new-york,
+  section#popular-flights #berlin {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #rome,
+  section#popular-flights #barcelona,
+  section#popular-flights #edinburgh {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #paris,
+  section#popular-flights #belfast,
+  section#popular-flights #dublin {
+    margin-top: 1em;
+  }
+
+  section#popular-flights #amsterdam,
+  section#popular-flights #prague,
+  section#popular-flights #copenhagen {
+    margin-top: 1em;
   }
 }
 
@@ -272,6 +500,7 @@ section#contact-us form {
 
   section#about-us,
   section#popular-flights,
+  section#faq,
   section#contact-us {
     padding: 10rem 0;
     text-align: start !important;
@@ -279,9 +508,23 @@ section#contact-us form {
 
   section#about-us > div > div,
   section#popular-flights > div > div,
+  section#faq > div > div,
   section#contact-us > div > div {
     text-align: start !important;
   }
+
+  section#popular-flights #london,
+  section#popular-flights #new-york,
+  section#popular-flights #berlin,
+  section#popular-flights #rome,
+  section#popular-flights #barcelona,
+  section#popular-flights #edinburgh,
+  section#popular-flights #paris,
+  section#popular-flights #belfast,
+  section#popular-flights #dublin,
+  section#popular-flights #amsterdam,
+  section#popular-flights #prague,
+  section#popular-flights #copenhagen {
+    margin-top: 1em;
+  }
 }
-
-
