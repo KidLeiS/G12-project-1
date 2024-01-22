@@ -32,28 +32,14 @@
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Destination" /></div>
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="depart-date" aria-label="Depart Date" placeholder="Depart Date" /></div>
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="return-date" aria-label="Return From" placeholder="dd/mm/yy" /></div>
-              <!-- -->
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Return From" placeholder="Travellers" /></div>
-               
-               <!--
-                <div class="col-xs-12 col-md-6 col-lg-2">
-                <button id="buttonStyle"  type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-               </div>
-               -->
-              
-    
+              <!--div with id for modal activation in jQuery-->
+            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Return From" placeholder="Travellers" /></div>                           
               <div class="col-xs-12 col-md-6 col-lg-2"><button id="submit">Submit</button></div>
             </div>
           </form>
         </div>
       </div>
-    </header>
-   
-
-      <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-    </button>
+    </header>    
   
   <!-- Modal -->
   <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -78,10 +64,9 @@
                         <option value="first-class">First Class</option>
                         </select>                        
                     </div>
-                    <div class="col-xs-12 col-md-6 col-lg-2"><button id="submit">Submit</button></div>
+                    <div class="col-md-12"><button id="submit">Submit</button></div>
                     </div>
-                </form>
-                
+                </form>                
             </div>
         </div>
     </div>
@@ -180,17 +165,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- external js -->
     <script src="assets/js/script.js"></script>
-
   
+    <!-- jquery script to launch modal -->
     <script>
       $(document).ready(function() {
-    $("#numberTravellersInput").click(function() {
-      $("#travellersModal").modal('show');;
-      console.log("modal should open");
-    });
-  });
-    
-  
+        $("#numberTravellersInput").click(function() {
+          $("#travellersModal").modal('show');;
+          console.log("modal should open");
+        });
+      });    
     </script>
 
 
