@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <head>
+    <!-- meta data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- page title -->
+    <title>Flight Flamingo</title>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- external styles -->
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    
+    
+  </head>
+  <!-- body -->
+  <body>
+    <!-- header -->
+    <header id="header">
+      <div class="container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <div id="logo" class="d-flex flex-column justify-content-center align-items-center text-center">
+            <!-- logo -->
+            <h1>Flight Flamingo</h1>
+            <p>For all of your flying needs!</p>
+          </div>
+          <!-- input form -->
+          <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Depart From" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Destination" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="depart-date" aria-label="Depart Date" placeholder="Depart Date" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="return-date" aria-label="Return From" placeholder="dd/mm/yy" /></div>
+              <!--div with id for modal activation in jQuery-->
+            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Return From" placeholder="Travellers" /></div>                           
+              <div class="col-xs-12 col-md-6 col-lg-2"><button id="submit">Submit</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>    
+  
+  <!-- Modal -->
+  <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="travellersModalLabel">Travellers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+            <div class="modal-body">
+                <!-- input form -->
+                <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="row">
+                    <div class="col-md-12"><input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Adults" /></div>
+                    <div class="col-md-12"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Children" /></div>
+                    <div class="col-md-12"><input type="text" name="destination" id="destination" aria-label="Infants" placeholder="Infants" /></div>                 
+                    <div class="col-md-12">
+                        <select name="travel-class" id="travel-class" aria-label="Select Class" placeholder="Select Class">
+                        <option value="economy">Economy</option>
+                        <option value="premium-economy">Premium Economy</option>
+                        <option value="Business-class">Business</option>
+                        <option value="first-class">First Class</option>
+                        </select>                        
+                    </div>
+                    <div class="col-md-12"><button id="submit">Submit</button></div>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- popular flights -->
+    <section id="popular-flights">
+      <div class="container">
+        <div class="text-center">
+          <h2>Popular Searches</h2>
+          <p>Other travellers are loving these destinations. Search and compare flights.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- about us -->
+    <section id="about-us">
+      <div class="container">
+        <div class="text-center">
+          <h2>About Us</h2>
+          <p>Here's a little something about us.</p>
+          <article class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="card">
+                  <img src="assets/images/avatars/curtis.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h4 class="card-title">Curtis Bowen</h4>
+                    <p class="card-text">I'm Curtis. An aspiring frontend developer from the UK. Myself along side of two others have created this app for an EdX challenge!</p>
+                    <a href="#" class="button">Visit Portfolio</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="card">
+                  <img src="assets/images/avatars/adrian.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Adrian Lamour</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="button">Visit Portfolio</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="card">
+                  <img src="assets/images/avatars/eric.png" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Eric Shen</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="button">Visit Portfolio</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact us -->
+    <section id="contact-us">
+      <div class="container">
+        <div class="text-center">
+          <h2>Contact Us</h2>
+          <p>Need to reach us? This is the place to do so.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+          </div>
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-muted" href="#">Home</a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#">Abous Us</a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- external js -->
+    <script src="assets/js/script.js"></script>
+  
+    <!-- jquery script to launch modal -->
+    <script>
+      $(document).ready(function() {
+        $("#numberTravellersInput").click(function() {
+          $("#travellersModal").modal('show');;
+          console.log("modal should open");
+        });
+      });    
+    </script>
+
+
+  </body>
+</html>
