@@ -27,315 +27,68 @@
             <p>For all of your flying needs!</p>
           </div>
        
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Oneway</label>
-          </div>
+        
 
-          <!-- input form -->
-          <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
-            <div class="row">
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="fromSearch" aria-label="Depart From" placeholder="Depart From" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="toSearch" aria-label="Destination" placeholder="Destination" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="departSearch" aria-label="Depart Date" placeholder="Depart Date" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="returnSearch" aria-label="Return From" placeholder="dd/mm/yy" /></div>
-              <!--div with id for modal activation in jQuery-->
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Additional options" placeholder="Travellers" /></div>                           
-              <div class="col-xs-12 col-md-6 col-lg-2"><button id="submitSearch">Submitted</button></div>
+          
             </div>
           </form>
         </div>
       </div>
+    </header>   
 
-      <!-- divs with id - text added from javascript -->
-      <div id="priceDisplay"></div>
-<div id="dateDisplay"></div>
+      <!-- divs with id - text added from javascript/Local Storage data -->
+      <div class="container">       
+        <div id="priceDisplay"></div>        
+        <div id="departureDateDisplay"></div>
+        <div id="returnDateDisplay"></div>
+        <!-- not working - null
+           <div id="stopsDisplay"></div> 
+        -->
+        <div id="stopsDisplay"></div>
+        <div id="carriersDisplay"></div>
+    </div>
+        
 
-<!-- JavaScript to update the content -->
+
+<!----- JavaScript to get data from Localstorag and Display on screen ------>
 <script>
-  // Assuming you have stored search results in Local Storage
+  // Get search results in Local Storage
   var storedSearchResults = JSON.parse(localStorage.getItem("search"));
 
   // Check if there are stored search results by checking if array length is greater than 0
   if (storedSearchResults && storedSearchResults.length > 0) {
+    //if true, create variables from Local Storage data, one by one. 
     var firstResult = storedSearchResults[0];
     var firstPrice = firstResult.price;
     var departureDate = firstResult.legs[0].startTime;
-    var returnDate = firstResult.legs.length > 1 ? firstResult.legs[1].endTime : null;
+    var returnDate = firstResult.legs[0].endTime;
+    //var layoverVar = firstResult.legs[0].stops;
+    var airlineVar = firstResult.legs[0].carriers;
 
     // Update the content of the element with id "priceDisplay"
     document.getElementById("priceDisplay").textContent = "First Price: " + firstPrice;
 
-    // Update the content of the element with id "dateDisplay"
-    document.getElementById("dateDisplay").textContent = "Departure Date: " + departureDate +
-      (returnDate ? ", Return Date: " + returnDate : "");
+    // Update the content of the element with id "departureDateDisplay" "dateDisplay"
+    document.getElementById("departureDateDisplay").textContent = "Departure Date: " + departureDate;
+      
+        // Update the content of the element with id "returnDateDisplay"
+    document.getElementById("returnDateDisplay").textContent = "Return Date: " + returnDate;
+
+      // Update the content of the element with id "stops" - not working- commented out
+    //document.getElementById("stopsDispla").textContent = "Stops: " + layoverVar;
+
+      // Update the content of the element with id "carriersDisplay"
+      document.getElementById("carriersDisplay").textContent = "Airline: " + airlineVar;
+
+
+
+    //if no results (storedSearchResults && storedSearchResults.length > 0) run else
   } else {
     console.log("No stored search results available.");
   }
 </script>   
-<!----------------------------------------------------------------------------------->
-
-    
-
-
-
-
-
-    </header>    
+<!------------------------------------------------------------------------------>
   
-  <!-- Modal -->
-  <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="travellersModalLabel">More options</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-            <div class="modal-body">
-                <!-- input form -->
-                <form id="modal-input" class="d-flex flex-column justify-content-center align-items-center">
-                    <div class="row">
-                    <div class="col-md-12"><input type="text" name="depart" id="adults" data-modal="1" aria-label="Depart From" placeholder="Adults" /></div>
-                    <div class="col-md-12"><input type="text" name="destination" id="childs" data-modal="0" aria-label="Destination" placeholder="Children" /></div>
-                    <div class="col-md-12"><input type="text" name="destination" id="infants" data-modal="0" aria-label="Infants" placeholder="Infants" /></div>                 
-                    <div class="col-md-12">
-                        <select name="travel-class" id="flightClass" data-modal="Economy" aria-label="Select Class" placeholder="Select Class">
-                          <option value="economy">Economy</option>
-                          <option value="premium-economy">Premium Economy</option>
-                          <option value="Business-class">Business</option>
-                          <option value="first-class">First Class</option>
-                        </select>                        
-                    </div>
-                    <div class="col-md-12">
-                      <select name="travel-class" id="currency" data-modal="USD" aria-label="Select Class" placeholder="Select Class">
-                        <option value="USD">USD</option>
-                        <option value="GBP">GBP</option>
-                        <option value="EUR">EUR</option>
-                      </select>                        
-                    </div>
-                    <div class="col-md-12"><button id="submit">Submit</button></div>
-                    </div>
-                </form>                
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <!-- popular flights -->
-    <section id="popular-flights">
-      <div class="container">
-        <div class="text-center">
-          <h2>Popular Searches</h2>
-          <p>Other travellers are loving these destinations. Search and compare flights.</p>
-          <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="#">
-                <div class="popular-destination" id="london" data-title="London"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="#">
-                <div class="popular-destination" id="new-york" data-title="New York"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="berlin" data-title="Berlin"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="rome" data-title="Rome"></div>
-              </a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="barcelona" data-title="Barcelona"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="edinburgh" data-title="Edinburgh"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="paris" data-title="Paris"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="belfast" data-title="Belfast"></div>
-              </a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="dublin" data-title="Dublin"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="amsterdam" data-title="Amsterdam"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="prague" data-title="Prague"></div>
-              </a>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <a href="">
-                <div class="popular-destination" id="copenhagen" data-title="Copenhagen"></div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- faq -->
-    <section id="faq">
-      <div class="container">
-        <div class="text-center">
-          <h2>Frequently Asked Questions</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, alias.</p>
-          <article>
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">FAQ 1</button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed recusandae at, illo odit a commodi, harum modi minima earum expedita mollitia ex id quidem tempore quaerat cumque non fuga suscipit totam temporibus minus ullam amet! Minima, commodi. Quaerat tempora ipsa voluptatum voluptatem soluta ipsam nam molestiae. Explicabo at odio non praesentium alias delectus sunt quasi exercitationem ipsa ipsam voluptatibus, dicta debitis. Sunt excepturi qui rerum praesentium. Est at
-                    iusto dolorum! Minima reiciendis tenetur quas! Perferendis veniam molestiae qui quos cupiditate, aliquam ullam suscipit, harum, ratione ipsum nihil ad quibusdam. Nam modi error, reiciendis iste adipisci deserunt quo nobis, porro laborum ad sunt esse maiores aperiam nihil eos doloribus soluta fugit distinctio delectus eligendi fugiat? Veniam iusto ea nulla officia cum eum voluptas pariatur accusantium nobis perferendis, ab exercitationem, autem, earum doloribus. Iste animi,
-                    repellat magnam, fuga quia id rem unde impedit eum in odio voluptates omnis laborum voluptate vel. Placeat vitae voluptatibus alias non, maxime autem consequuntur corrupti voluptates facilis voluptate reiciendis similique totam! Impedit optio hic, odio itaque aperiam minus consequatur eaque autem molestias mollitia labore distinctio omnis atque aspernatur quam id quaerat, maxime nostrum dolorem rem? Totam iusto cumque sapiente perspiciatis quia earum esse, quis ipsum quos ab?
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">FAQ 2</button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae provident unde molestias expedita necessitatibus in quae fugit? Dolorum facere totam quis veniam eius cumque omnis assumenda saepe atque? Minus at eos vero? Inventore quos ducimus animi minus quasi accusamus in, recusandae, quae voluptatibus molestias a nobis cumque deserunt, error labore. Quaerat, adipisci aliquid magni architecto deserunt reprehenderit earum obcaecati hic fugiat eveniet eligendi excepturi
-                    eaque sint neque rem illum iure nulla. Error, sed unde alias delectus repellendus cum rem laudantium pariatur dolorum nam aperiam iste iusto hic laborum ab commodi? Suscipit quisquam deserunt distinctio a quas excepturi non. Aliquid unde rem cupiditate possimus facilis in necessitatibus tempore nulla maxime repudiandae modi ut dolores a odit labore, hic nisi veniam minima quidem deserunt optio suscipit eaque, enim asperiores. Necessitatibus, perspiciatis ad! Possimus
-                    necessitatibus cum explicabo ab assumenda nostrum similique deserunt quod enim, labore in vero repudiandae cupiditate aut eum fugiat atque quas ex natus molestias! Odio corrupti quam delectus recusandae.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">FAQ 3</button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed consequuntur autem, qui totam at obcaecati ipsum, tempora minima, vel placeat facilis ut pariatur ipsa voluptatibus? Saepe itaque, aliquid aspernatur quaerat officiis dicta, aperiam in maiores dolores quia corporis laborum dignissimos minus! Expedita, quam possimus. Voluptates dolores aperiam deleniti pariatur, deserunt magni similique error ad amet, odit illum dicta in quam alias fugiat iure necessitatibus,
-                    possimus dolorum natus ullam quidem architecto? Fuga libero beatae aperiam ducimus itaque debitis blanditiis dolores quaerat facere corrupti ab voluptas, culpa, tempore quae minus, vero laborum reiciendis odit ipsam natus? Adipisci cupiditate commodi, quae aliquam, quisquam incidunt eum repellendus, possimus culpa ut iure? Rerum sapiente laboriosam, ullam expedita mollitia similique. Tempora consequuntur reiciendis ea libero neque porro numquam voluptate. Ducimus, esse. Dolor
-                    corporis minus temporibus aspernatur quae consectetur, nostrum, eveniet est quo molestias maiores itaque officia pariatur enim sequi quidem corrupti libero distinctio dolores ducimus ipsam expedita facere harum. Eaque asperiores repellat, reiciendis dignissimos iste esse. Quia quasi odit officiis omnis nihil debitis adipisci voluptatibus dolore, voluptas deleniti architecto? Soluta eius dolorum, voluptatibus recusandae deleniti beatae!
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- about us -->
-    <section id="about-us">
-      <div class="container">
-        <div class="text-center">
-          <h2>Meet The Team</h2>
-          <p>Come and meet our developers.</p>
-          <article class="d-flex flex-column justify-content-center align-items-center">
-            <div class="row w-100">
-              <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="card d-flex flex-column justify-content-center align-items-center">
-                  <div class="card-head" id="dev-curtis"></div>
-                  <div class="card-body">
-                    <h4 class="card-title fw-bold">Curtis Bowen</h4>
-                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="Hi there! I'm Curtis, an aspiring frontend developer from the UK.">Visit Portfolio</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="card d-flex flex-column justify-content-center align-items-center">
-                  <div class="card-head" id="dev-adrian"></div>
-                  <div class="card-body">
-                    <h4 class="card-title fw-bold">Adrian Lamour</h4>
-                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="EDIT ME...">Visit Portfolio</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-md-6 col-lg-4">
-                <div class="card d-flex flex-column justify-content-center align-items-center">
-                  <div class="card-head" id="dev-eric"></div>
-                  <div class="card-body">
-                    <h4 class="card-title fw-bold">Eric Shen</h4>
-                    <a href="https://kidleis.github.io/bootstrap-portfolio/#skills-section" class="button" data-toggle="tooltip" data-placement="top" title="Hey Ho! It's Eric here, I'm an avid web-dev geek!">Visit Portfolio</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- contact us -->
-    <section id="contact-us">
-      <div class="container">
-        <div class="text-center">
-          <div class="row d-flex flex-row justify-content-between align-items-center">
-            <div class="col-xs-6 col-md-6 col-lg-6">
-              <h2>Contact Us</h2>
-              <p>Need to reach us? This is the place to do so.</p>
-            </div>
-            <!-- contact form -->
-            <div class="col-xs-6 col-md-6 col-lg-6">
-              <form action="">
-                <label for="name">Enter your name:</label>
-                <input type="text" name="name" id="name" placeholder="Albus Dumbledore" />
-                <label for="email">Enter your email:</label>
-                <input type="email" name="email" id="email" placeholder="albus.dumbledore@hogwarts.com" />
-                <label for="message">How can we help?</label>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Be aware that the school has been infiltrated!"></textarea>
-                <button id="submit">Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- footer -->
-    <footer>
-      <div class="container">
-        <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
-          <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-muted">© 2024 Flight Flamingo</span>
-          </div>
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3">
-              <a class="text-muted" href="#">Home</a>
-            </li>
-            <li class="ms-3">
-              <a class="text-muted" href="#about-us">Abous Us</a>
-            </li>
-            <li class="ms-3">
-              <a class="text-muted" href="#contact-us">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

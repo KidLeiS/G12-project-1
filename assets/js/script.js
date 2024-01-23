@@ -235,15 +235,6 @@ $("#searchButton").on("click",function(event){
         // });
 
     }
-
-    //devFrom Docs - link to open modal - nested in $("#searchButton").on("click",function(event)
-    $('#exampleModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
-
-  
-
-
 })
 
 
@@ -258,3 +249,24 @@ $("#searchButton").on("click",function(event){
 // }).then(function(data){
 //     console.log(data);
 // });
+
+
+//Display First Price:
+// Assuming searchResults is an array with at least one result
+// if (searchResults.length > 0) {
+//     var firstPrice = searchResults[0].price;
+//     console.log("First Price:", firstPrice);
+//   } else {
+//     console.log("No search results available.");
+//   }
+
+// Assuming you have stored search results in Local Storage
+var storedSearchResults = JSON.parse(localStorage.getItem("search"));
+
+// Check if there are stored search results
+if (storedSearchResults && storedSearchResults.length > 0) {
+  var firstPrice = storedSearchResults[0].price;
+  console.log("First Price from Local Storage:", firstPrice);
+} else {
+  console.log("No stored search results available.");
+}
