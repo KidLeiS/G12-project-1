@@ -1,152 +1,330 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <!-- head -->
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- page title -->
     <title>Flight Flamingo</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-     <!-- Link to CSS -->
-    <link href="assets/styles/style.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- external styles -->
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    
     
   </head>
-  
+  <!-- body -->
   <body>
-    
-    <div class="container-flex" id="nameLogo"><!-- Container-flex to fill width(for background colour) -->
-      <div class="container"> <!-- Container to add space at left and right -->
-        <!-- Heading -->
-        <h1 id="websiteName">Flight Flamingo</h1>
-      </div>   
-
-      <div class="container"> <!-- Container to add space at left and right -->
-        <!-- Form Switch-> One Way or Return  -- Top Placement -->
-        <div class="input-group mb-3" id="mainsearch">
-           <!-- col's for Spacing  ---- Could be done differently later -->
-          <p class="col"></p>
-          <p class="col"></p>
-          <p class="col"></p>
-          <div class="form-check form-switch mb-3">        
-            <div class="form-check form-switch">
-            <span>One Way</span> <!-- Move to Left of Switch-- has some CSS that adjusts text position a bit -->
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Return</label>
+    <!-- header -->
+    <header id="header">
+      <div class="container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <div id="logo" class="d-flex flex-column justify-content-center align-items-center text-center">
+            <!-- logo -->
+            <h1>Flight Flamingo</h1>
+            <p>For all of your flying needs!</p>
           </div>
-          <p class="col"></p>        
+       
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Oneway</label>
+          </div>
+
+          <!-- input form -->
+          <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="fromSearch" aria-label="Depart From" placeholder="Depart From" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="toSearch" aria-label="Destination" placeholder="Destination" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="departSearch" aria-label="Depart Date" placeholder="Depart Date" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="returnSearch" aria-label="Return From" placeholder="dd/mm/yy" /></div>
+              <!--div with id for modal activation in jQuery-->
+            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Additional options" placeholder="Travellers" /></div>                           
+              <div class="col-xs-12 col-md-6 col-lg-2"><button id="submitSearch">Submit</button></div>
+            </div>
+          </form>
         </div>
-
-        <!-- Main Input -->
-        <div class="input-group mb-3 border-0">
-          <input id="toSearch" type="text" class="form-control border-0" placeholder="To" aria-label="To">
-          <!-- <button class="reverse_to_from border-0">@reverse</button>-->
-          <input id="fromSearch" type="text" class="form-control border-0" placeholder="From" aria-label="From">
-          <input id="departSearch" type="text" class="form-control" placeholder="Depart" aria-label="Depart">
-          <input id="returnSearch" type="text" class="form-control" placeholder="Return" aria-label="Return">
-          <input id="adults" type="text" class="form-control" placeholder="Adults" aria-label="amountAdults">
-          <input id="childs" type="text" class="form-control" placeholder="Children" aria-label="amountChildren">
-          <input id="infants" type="text" class="form-control" placeholder="Infants" aria-label="amountInfants">
-          <select id="flightClass" class="form-select" aria-label="Default select example">
-            <option selected value="Economy">Economy</option>
-            <option value="Premium_Economy">Premium Economy</option>
-            <option value="Business">Business</option>
-            <option value="First">First</option>
-          </select>
-          <select id="currency" class="form-select" aria-label="Default select example">
-            <option selected value="USD">USD</option>
-            <option value="GBP">GBP</option>
-            <option value="EUR">EUR</option>
-          </select>
-          <button id="searchButton">search</button>
-        </div> 
-      </div>  
-    </div>
-  </div>
-
- 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Test button to be removed (or second page option). Just wanted to test jQuery link with search as well. 
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Flight Prices</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <p>Flight Price info goes here</p>
-        <p>Flight 1<span>-------------Flight prices pulled from js/jquery?</span></p>
-        <p>Flight 2<span>-------------Flight prices pulled from js/jquery?</span></p>
-        <p>Flight 2<span>-------------Flight prices pulled from js/jquery?</span></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Book Holiday!</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="container"> 
-  <div class="row">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
+    </header>    
   
-  
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
+  <!-- Modal -->
+  <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="travellersModalLabel">More options</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+            <div class="modal-body">
+                <!-- input form -->
+                <form id="modal-input" class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="row">
+                    <div class="col-md-12"><input type="text" name="depart" id="adults" data-modal="1" aria-label="Depart From" placeholder="Adults" /></div>
+                    <div class="col-md-12"><input type="text" name="destination" id="childs" data-modal="0" aria-label="Destination" placeholder="Children" /></div>
+                    <div class="col-md-12"><input type="text" name="destination" id="infants" data-modal="0" aria-label="Infants" placeholder="Infants" /></div>                 
+                    <div class="col-md-12">
+                        <select name="travel-class" id="flightClass" data-modal="Economy" aria-label="Select Class" placeholder="Select Class">
+                          <option value="economy">Economy</option>
+                          <option value="premium-economy">Premium Economy</option>
+                          <option value="Business-class">Business</option>
+                          <option value="first-class">First Class</option>
+                        </select>                        
+                    </div>
+                    <div class="col-md-12">
+                      <select name="travel-class" id="currency" data-modal="USD" aria-label="Select Class" placeholder="Select Class">
+                        <option value="USD">USD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="EUR">EUR</option>
+                      </select>                        
+                    </div>
+                    <div class="col-md-12"><button id="submit">Submit</button></div>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
     </div>
 
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+
+    <!-- popular flights -->
+    <section id="popular-flights">
+      <div class="container">
+        <div class="text-center">
+          <h2>Popular Searches</h2>
+          <p>Other travellers are loving these destinations. Search and compare flights.</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="#">
+                <div class="popular-destination" id="london" data-title="London"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="#">
+                <div class="popular-destination" id="new-york" data-title="New York"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="berlin" data-title="Berlin"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="rome" data-title="Rome"></div>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="barcelona" data-title="Barcelona"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="edinburgh" data-title="Edinburgh"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="paris" data-title="Paris"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="belfast" data-title="Belfast"></div>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="dublin" data-title="Dublin"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="amsterdam" data-title="Amsterdam"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="prague" data-title="Prague"></div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+              <a href="">
+                <div class="popular-destination" id="copenhagen" data-title="Copenhagen"></div>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-  
-</div>
+    <!-- faq -->
+    <section id="faq">
+      <div class="container">
+        <div class="text-center">
+          <h2>Frequently Asked Questions</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, alias.</p>
+          <article>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">FAQ 1</button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed recusandae at, illo odit a commodi, harum modi minima earum expedita mollitia ex id quidem tempore quaerat cumque non fuga suscipit totam temporibus minus ullam amet! Minima, commodi. Quaerat tempora ipsa voluptatum voluptatem soluta ipsam nam molestiae. Explicabo at odio non praesentium alias delectus sunt quasi exercitationem ipsa ipsam voluptatibus, dicta debitis. Sunt excepturi qui rerum praesentium. Est at
+                    iusto dolorum! Minima reiciendis tenetur quas! Perferendis veniam molestiae qui quos cupiditate, aliquam ullam suscipit, harum, ratione ipsum nihil ad quibusdam. Nam modi error, reiciendis iste adipisci deserunt quo nobis, porro laborum ad sunt esse maiores aperiam nihil eos doloribus soluta fugit distinctio delectus eligendi fugiat? Veniam iusto ea nulla officia cum eum voluptas pariatur accusantium nobis perferendis, ab exercitationem, autem, earum doloribus. Iste animi,
+                    repellat magnam, fuga quia id rem unde impedit eum in odio voluptates omnis laborum voluptate vel. Placeat vitae voluptatibus alias non, maxime autem consequuntur corrupti voluptates facilis voluptate reiciendis similique totam! Impedit optio hic, odio itaque aperiam minus consequatur eaque autem molestias mollitia labore distinctio omnis atque aspernatur quam id quaerat, maxime nostrum dolorem rem? Totam iusto cumque sapiente perspiciatis quia earum esse, quis ipsum quos ab?
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">FAQ 2</button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae provident unde molestias expedita necessitatibus in quae fugit? Dolorum facere totam quis veniam eius cumque omnis assumenda saepe atque? Minus at eos vero? Inventore quos ducimus animi minus quasi accusamus in, recusandae, quae voluptatibus molestias a nobis cumque deserunt, error labore. Quaerat, adipisci aliquid magni architecto deserunt reprehenderit earum obcaecati hic fugiat eveniet eligendi excepturi
+                    eaque sint neque rem illum iure nulla. Error, sed unde alias delectus repellendus cum rem laudantium pariatur dolorum nam aperiam iste iusto hic laborum ab commodi? Suscipit quisquam deserunt distinctio a quas excepturi non. Aliquid unde rem cupiditate possimus facilis in necessitatibus tempore nulla maxime repudiandae modi ut dolores a odit labore, hic nisi veniam minima quidem deserunt optio suscipit eaque, enim asperiores. Necessitatibus, perspiciatis ad! Possimus
+                    necessitatibus cum explicabo ab assumenda nostrum similique deserunt quod enim, labore in vero repudiandae cupiditate aut eum fugiat atque quas ex natus molestias! Odio corrupti quam delectus recusandae.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">FAQ 3</button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed consequuntur autem, qui totam at obcaecati ipsum, tempora minima, vel placeat facilis ut pariatur ipsa voluptatibus? Saepe itaque, aliquid aspernatur quaerat officiis dicta, aperiam in maiores dolores quia corporis laborum dignissimos minus! Expedita, quam possimus. Voluptates dolores aperiam deleniti pariatur, deserunt magni similique error ad amet, odit illum dicta in quam alias fugiat iure necessitatibus,
+                    possimus dolorum natus ullam quidem architecto? Fuga libero beatae aperiam ducimus itaque debitis blanditiis dolores quaerat facere corrupti ab voluptas, culpa, tempore quae minus, vero laborum reiciendis odit ipsam natus? Adipisci cupiditate commodi, quae aliquam, quisquam incidunt eum repellendus, possimus culpa ut iure? Rerum sapiente laboriosam, ullam expedita mollitia similique. Tempora consequuntur reiciendis ea libero neque porro numquam voluptate. Ducimus, esse. Dolor
+                    corporis minus temporibus aspernatur quae consectetur, nostrum, eveniet est quo molestias maiores itaque officia pariatur enim sequi quidem corrupti libero distinctio dolores ducimus ipsam expedita facere harum. Eaque asperiores repellat, reiciendis dignissimos iste esse. Quia quasi odit officiis omnis nihil debitis adipisci voluptatibus dolore, voluptas deleniti architecto? Soluta eius dolorum, voluptatibus recusandae deleniti beatae!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-         
-    
+    <!-- about us -->
+    <section id="about-us">
+      <div class="container">
+        <div class="text-center">
+          <h2>Meet The Team</h2>
+          <p>Come and meet our developers.</p>
+          <article class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row w-100">
+              <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="card d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-head" id="dev-curtis"></div>
+                  <div class="card-body">
+                    <h4 class="card-title fw-bold">Curtis Bowen</h4>
+                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="Hi there! I'm Curtis, an aspiring frontend developer from the UK.">Visit Portfolio</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="card d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-head" id="dev-adrian"></div>
+                  <div class="card-body">
+                    <h4 class="card-title fw-bold">Adrian Lamour</h4>
+                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="EDIT ME...">Visit Portfolio</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="card d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-head" id="dev-eric"></div>
+                  <div class="card-body">
+                    <h4 class="card-title fw-bold">Eric Shen</h4>
+                    <a href="#" class="button" data-toggle="tooltip" data-placement="top" title="EDIT ME...">Visit Portfolio</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Optional JavaScript; choose one of the two! -->    
+    <!-- contact us -->
+    <section id="contact-us">
+      <div class="container">
+        <div class="text-center">
+          <div class="row d-flex flex-row justify-content-between align-items-center">
+            <div class="col-xs-6 col-md-6 col-lg-6">
+              <h2>Contact Us</h2>
+              <p>Need to reach us? This is the place to do so.</p>
+            </div>
+            <!-- contact form -->
+            <div class="col-xs-6 col-md-6 col-lg-6">
+              <form action="">
+                <label for="name">Enter your name:</label>
+                <input type="text" name="name" id="name" placeholder="Albus Dumbledore" />
+                <label for="email">Enter your email:</label>
+                <input type="email" name="email" id="email" placeholder="albus.dumbledore@hogwarts.com" />
+                <label for="message">How can we help?</label>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Be aware that the school has been infiltrated!"></textarea>
+                <button id="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Bootstrap JS link-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <!-- footer -->
+    <footer>
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+          <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">© 2024 Flight Flamingo</span>
+          </div>
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-muted" href="#">Home</a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#about-us">Abous Us</a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#contact-us">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Dayjs -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- Our own javascript -->
     <script src="assets/js/script.js"></script>
+  
+    <!-- jquery script to launch modal -->
+    <script>
+      $(document).ready(function() {
+        $("#numberTravellersInput").click(function() {
+          $("#travellersModal").modal('show');;
+          console.log("modal should open");
+        });
+      });    
+
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+
 
   </body>
 </html>

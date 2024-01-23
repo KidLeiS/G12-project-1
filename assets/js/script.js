@@ -1,16 +1,29 @@
 var apiKey = "65a6dfbcf70ea898ea3cbc71";
+var gifAPI = "r1IRzTmvuQiyU0OWyewv9yK1v5wIPI0r";
 var ftypeSelector = $("#flexSwitchCheckDefault");
 var rawSearchResults;
 var searchResults = [];
+var loadingGif;
+
+//Loading page GIF
+loadingImgURL = `https://api.giphy.com/v1/gifs?ids=zlcIBNopQj8Yx5QgpR&api_key=${gifAPI}`;
+
+fetch(loadingImgURL)
+.then(function(response) {
+    return response.json();
+}).then(function(data) {
+    loadingGif = data.data[0].images.original.url;
+    console.log(loadingGif);
+});
 
 // Blacks out return date when one way is selected
-$("#returnSearch").attr("disabled",true);
+$("#returnSearch").attr("disabled",false);
 
 ftypeSelector.on("click",function(event){
     event.stopPropagation();
     i = ftypeSelector[0].checked
 
-    if(i) {
+    if(!i) {
         $("#returnSearch").attr("disabled",false);
     } else {
         $("#returnSearch").attr("disabled",true);
@@ -62,46 +75,77 @@ var generateResults = function (object) {
             itinerary.legs.push(xleg);
         }
         searchResults.push(itinerary);
-        console.log(itinerary);
+        //console.log(itinerary);
     }
 }
 
+//Push search results into LocalStorage
 var storeLocal = function (){
-    console.log("Upload: " + searchResults);
     localStorage.setItem("search", JSON.stringify(searchResults));
-}
+};
 
 
 
 // Logic when the search is submitted
-$("#searchButton").on("click",function(event){
+$("#submitSearch").on("click",function(event){
     event.preventDefault();
     var dep = $("#fromSearch").val();
     var arr = $("#toSearch").val();
     var depDate = dayjs($("#departSearch").val()).format("YYYY-MM-DD");
     var retDate = dayjs($("#returnSearch").val()).format("YYYY-MM-DD");
-    var adults = $("#adults").val();
-    var childs = $("#childs").val();
-    var infants = $("#infants").val();
-    var flightClass = $("#flightClass").val();
-    var currency = $("#currency").val();
+    var adults = document.getElementById("adults").dataset.modal;
+    var childs = document.getElementById("childs").dataset.modal;
+    var infants = document.getElementById("infants").dataset.modal;
+    var flightClass = document.getElementById("flightClass").dataset.modal;
+    var currency = document.getElementById("currency").dataset.modal;
 
-    //Checks if the type selected is one way (false) or return (true), and generates the raw data
-    if(ftypeSelector[0].checked){
-        //Return flight
-        var twoWayURL = `https://api.flightapi.io/roundtrip/${apiKey}/${dep}/${arr}/${depDate}/${retDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
-        console.log(twoWayURL);
-        // API call
-        fetch(twoWayURL)
-        .then(function(response) {
-            return response.json();
-        }).then(function(data){
-            console.log(data);
-            generateResults(data);
-            storeLocal;
-        });
+    var loadingImg = $("<img>").attr("src", loadingGif);
+    var loadingPage = $("<div>").attr("class", "loading");
+
+    loadingPage.append(loadingImg);
+
+    $("body").prepend(loadingPage);
+
+    // //Checks if the type selected is one way (false) or return (true), and generates the raw data
+    // if(ftypeSelector[0].checked){
+    //     //Return flight
+    //     var twoWayURL = `https://api.flightapi.io/roundtrip/${apiKey}/${dep}/${arr}/${depDate}/${retDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
+    //     console.log(twoWayURL);
+
+    //     document.getElementById('loadingImg').visible = true;
+    //     // API call
+    //     fetch(twoWayURL)
+    //     .then(function(response) {
+    //         return response.json();
+    //     }).then(function(data){
+    //         console.log(data);
+    //         generateResults(data);
+    //         console.log(searchResults);
+    //         storeLocal();
+    //     });
 
 
+
+
+    // } else {
+    //     //One way flight
+    //     var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
+    //     console.log(oneWayURL);
+    //     // Saving API calls
+    //     fetch(oneWayURL)
+    //     .then(function(response) {
+    //         return response.json();
+    //     }).then(function(data){
+    //         console.log(data);
+    //         generateResults(data);
+    //         storeLocal();
+    //     });
+
+    // }
+});
+
+
+// Modal logic
 $(document).ready(function(){
     $("#numberTravellersInput").click(function(){
       $("#exampleModal").modal();
@@ -110,47 +154,41 @@ $(document).ready(function(){
     
   });
 
-    } else {
-        //One way flight
-        var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
-        console.log(oneWayURL);
-        // Saving API calls
-        fetch(oneWayURL)
-        .then(function(response) {
-            return response.json();
-        }).then(function(data){
-            console.log(data);
-            generateResults(data);
-            storeLocal;
-        });
+//From Docs - link to open modal - nested in $("#searchButton").on("click",function(event)
+$('#exampleModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
 
-    }
+$("#modal-input").on('submit', function(event){
+    event.preventDefault();
+    var numAd = $("#adults").val();
+    var numCh = $("#childs").val();
+    var numInf = $("#infants").val();
+    var fClass = $("#flightClass").val();
+    var ccy = $("#currency").val()
 
-    //Push search results into LocalStorage
-    
-
-// Blacks out return date when one way is selected
-$("#returnSearch").attr("disabled",true);
-
-ftypeSelector.on("click",function(event){
-    event.stopPropagation();
-    i = ftypeSelector[0].checked
-
-    if(i) {
-        $("#returnSearch").attr("disabled",false);
-    } else {
-        $("#returnSearch").attr("disabled",true);
+    if (numAd > 1) {
+        document.getElementById("adults").dataset.modal = numAd;
     };
+    if (numCh > 0) {
+        document.getElementById("childs").dataset.modal = numCh;
+    };
+    if (numInf > 0) {
+        document.getElementById("infants").dataset.modal = numInf;
+    };
+    document.getElementById("flightClass").dataset.modal = fClass;
+    document.getElementById("currency").dataset.modal = ccy;
 
-    console.log(i);
-
+    $('#travellersModal').modal('hide');
 })
 
 
-    //From Docs - link to open modal - nested in $("#searchButton").on("click",function(event)
-    $('#exampleModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
+
+
+    
+
+
+
 
 // Logic when the search is submitted
 $("#searchButton").on("click",function(event){
@@ -221,4 +259,3 @@ $("#searchButton").on("click",function(event){
 // }).then(function(data){
 //     console.log(data);
 // });
-
