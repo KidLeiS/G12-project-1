@@ -106,42 +106,42 @@ $("#submitSearch").on("click",function(event){
 
     $("body").prepend(loadingPage);
 
-    // //Checks if the type selected is one way (false) or return (true), and generates the raw data
-    // if(ftypeSelector[0].checked){
-    //     //Return flight
-    //     var twoWayURL = `https://api.flightapi.io/roundtrip/${apiKey}/${dep}/${arr}/${depDate}/${retDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
-    //     console.log(twoWayURL);
+    //Checks if the type selected is one way (false) or return (true), and generates the raw data
+    if(ftypeSelector[0].checked){
+        //Return flight
+        var twoWayURL = `https://api.flightapi.io/roundtrip/${apiKey}/${dep}/${arr}/${depDate}/${retDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
+        console.log(twoWayURL);
 
-    //     document.getElementById('loadingImg').visible = true;
-    //     // API call
-    //     fetch(twoWayURL)
-    //     .then(function(response) {
-    //         return response.json();
-    //     }).then(function(data){
-    //         console.log(data);
-    //         generateResults(data);
-    //         console.log(searchResults);
-    //         storeLocal();
-    //     });
-
-
+        document.getElementById('loadingImg').visible = true;
+        // API call
+        fetch(twoWayURL)
+        .then(function(response) {
+            return response.json();
+        }).then(function(data){
+            console.log(data);
+            generateResults(data);
+            console.log(searchResults);
+            storeLocal();
+        });
 
 
-    // } else {
-    //     //One way flight
-    //     var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
-    //     console.log(oneWayURL);
-    //     // Saving API calls
-    //     fetch(oneWayURL)
-    //     .then(function(response) {
-    //         return response.json();
-    //     }).then(function(data){
-    //         console.log(data);
-    //         generateResults(data);
-    //         storeLocal();
-    //     });
 
-    // }
+
+    } else {
+        //One way flight
+        var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
+        console.log(oneWayURL);
+        // Saving API calls
+        fetch(oneWayURL)
+        .then(function(response) {
+            return response.json();
+        }).then(function(data){
+            console.log(data);
+            generateResults(data);
+            storeLocal();
+        });
+
+    }
 });
 
 
@@ -202,7 +202,7 @@ $("#searchButton").on("click",function(event){
     var infants = $("#infants").val();
     var flightClass = $("#flightClass").val();
     var currency = $("#currency").val();
-/*
+
     //Checks if the type selected is one way (false) or return (true), and generates the raw data
     if(ftypeSelector[0].checked){
         //Return flight
@@ -235,7 +235,6 @@ $("#searchButton").on("click",function(event){
         // });
 
     }
-*/
 
     //devFrom Docs - link to open modal - nested in $("#searchButton").on("click",function(event)
     $('#exampleModal').on('shown.bs.modal', function () {
