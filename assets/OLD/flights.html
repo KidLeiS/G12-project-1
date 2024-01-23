@@ -5,14 +5,15 @@
     <!-- meta data -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
     <!-- page title -->
     <title>Flight Flamingo</title>
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <!-- external styles -->
     <link rel="stylesheet" href="assets/styles/main.css" />
-    
-    
   </head>
   <!-- body -->
   <body>
@@ -25,66 +26,51 @@
             <h1>Flight Flamingo</h1>
             <p>For all of your flying needs!</p>
           </div>
-       
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Oneway</label>
-          </div>
-
           <!-- input form -->
           <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
             <div class="row">
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="fromSearch" aria-label="Depart From" placeholder="Depart From" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="toSearch" aria-label="Destination" placeholder="Destination" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="departSearch" aria-label="Depart Date" placeholder="Depart Date" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="returnSearch" aria-label="Return From" placeholder="dd/mm/yy" /></div>
-              <!--div with id for modal activation in jQuery-->
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Additional options" placeholder="Travellers" /></div>                           
-              <div class="col-xs-12 col-md-6 col-lg-2"><button id="submitSearch">Submit</button></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Depart From" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Destination" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="depart-date" aria-label="Depart Date" placeholder="Depart Date" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="return-date" aria-label="Return From" placeholder="Return From" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Travel Class" placeholder="Travellers & Class" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><button id="submit">Submit</button></div>
             </div>
           </form>
         </div>
       </div>
-    </header>    
-  
-  <!-- Modal -->
-  <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="travellersModalLabel">More options</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-            <div class="modal-body">
-                <!-- input form -->
-                <form id="modal-input" class="d-flex flex-column justify-content-center align-items-center">
-                    <div class="row">
-                    <div class="col-md-12"><input type="text" name="depart" id="adults" data-modal="1" aria-label="Depart From" placeholder="Adults" /></div>
-                    <div class="col-md-12"><input type="text" name="destination" id="childs" data-modal="0" aria-label="Destination" placeholder="Children" /></div>
-                    <div class="col-md-12"><input type="text" name="destination" id="infants" data-modal="0" aria-label="Infants" placeholder="Infants" /></div>                 
-                    <div class="col-md-12">
-                        <select name="travel-class" id="flightClass" data-modal="Economy" aria-label="Select Class" placeholder="Select Class">
-                          <option value="economy">Economy</option>
-                          <option value="premium-economy">Premium Economy</option>
-                          <option value="Business-class">Business</option>
-                          <option value="first-class">First Class</option>
-                        </select>                        
-                    </div>
-                    <div class="col-md-12">
-                      <select name="travel-class" id="currency" data-modal="USD" aria-label="Select Class" placeholder="Select Class">
-                        <option value="USD">USD</option>
-                        <option value="GBP">GBP</option>
-                        <option value="EUR">EUR</option>
-                      </select>                        
-                    </div>
-                    <div class="col-md-12"><button id="submit">Submit</button></div>
-                    </div>
-                </form>                
-            </div>
-        </div>
-    </div>
-    </div>
+    </header>
 
+    <!-- travellers & class modal -->
+    <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="travellersModalLabel">Travellers & Class</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- input form -->
+            <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
+              <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12"><input type="text" name="depart" id="depart" aria-label="Depart From" placeholder="Adults" /></div>
+                <div class="col-xs-12 col-md-12 col-lg-12"><input type="text" name="destination" id="destination" aria-label="Destination" placeholder="Children" /></div>
+                <div class="col-xs-12 col-md-12 col-lg-12"><input type="text" name="destination" id="destination" aria-label="Infants" placeholder="Infants" /></div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <select name="travel-class" id="travel-class" aria-label="Select Class" placeholder="Select Class">
+                    <option value="economy">Economy</option>
+                    <option value="premium-economy">Premium Economy</option>
+                    <option value="Business-class">Business</option>
+                    <option value="first-class">First Class</option>
+                  </select>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-12"><button id="submit">Submit</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- popular flights -->
     <section id="popular-flights">
@@ -305,26 +291,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <!-- Dayjs -->
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-
-    <!-- Our own javascript -->
+    <!-- external js -->
     <script src="assets/js/script.js"></script>
-  
-    <!-- jquery script to launch modal -->
+    <!-- modal script -->
     <script>
-      $(document).ready(function() {
-        $("#numberTravellersInput").click(function() {
-          $("#travellersModal").modal('show');;
-          console.log("modal should open");
+      $(document).ready(function () {
+        $('#numberTravellersInput').click(function () {
+          $('#travellersModal').modal('show');
+          console.log('modal should open');
         });
-      });    
+      });
 
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
     </script>
-
-
   </body>
 </html>
