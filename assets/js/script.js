@@ -106,6 +106,7 @@ $("#submitSearch").on("click",function(event){
             console.log(data);
             generateResults(data);
             storeLocal();
+            window.location.replace("page2.html");
         });
 
     } else {
@@ -113,7 +114,6 @@ $("#submitSearch").on("click",function(event){
         var twoWayURL = `https://api.flightapi.io/roundtrip/${apiKey}/${dep}/${arr}/${depDate}/${retDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
         console.log(twoWayURL);
 
-        document.getElementById('loadingImg').visible = true;
         // API call
         fetch(twoWayURL)
         .then(function(response) {
@@ -123,6 +123,7 @@ $("#submitSearch").on("click",function(event){
             generateResults(data);
             console.log(searchResults);
             storeLocal();
+            window.location.replace("page2.html");
         });
 
 
