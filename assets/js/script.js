@@ -76,8 +76,8 @@ var storeLocal = function (){
 // Logic when the search is submitted
 $("#submitSearch").on("click",function(event){
     event.preventDefault();
-    var dep = $("#fromSearch").val();
-    var arr = $("#toSearch").val();
+    var dep = $("#fromSearch").val().toUpperCase();
+    var arr = $("#toSearch").val().toUpperCase();
     var depDate = dayjs($("#departSearch").val()).format("YYYY-MM-DD");
     var retDate = dayjs($("#returnSearch").val()).format("YYYY-MM-DD");
     var adults = document.getElementById("adults").dataset.modal;
