@@ -106,7 +106,7 @@ $("#submitSearch").on("click",function(event){
             console.log(data);
             generateResults(data);
             storeLocal();
-            window.location.replace("page2.html");
+            window.location.replace("page2b.html");
         });
 
     } else {
@@ -123,7 +123,7 @@ $("#submitSearch").on("click",function(event){
             generateResults(data);
             console.log(searchResults);
             storeLocal();
-            window.location.replace("page2.html");
+            window.location.replace("page2b.html");
         });
 
 
