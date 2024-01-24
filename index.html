@@ -11,8 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <!-- external styles -->
     <link rel="stylesheet" href="assets/styles/main.css" />
-    
-    
   </head>
   <!-- body -->
   <body>
@@ -22,69 +20,69 @@
         <div class="d-flex flex-column justify-content-center align-items-center">
           <div id="logo" class="d-flex flex-column justify-content-center align-items-center text-center">
             <!-- logo -->
-            <h1>Flight Flamingo</h1>
+            <h1><a href="">Flight Flamingo</a></h1>
             <p>For all of your flying needs!</p>
-          </div>
-       
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Oneway</label>
           </div>
 
           <!-- input form -->
           <form id="search-flights" class="d-flex flex-column justify-content-center align-items-center">
-            <div class="row">
+            <div class="row w-100">
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="depart" id="fromSearch" aria-label="Depart From" placeholder="Depart From" /></div>
               <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="destination" id="toSearch" aria-label="Destination" placeholder="Destination" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="departSearch" aria-label="Depart Date" placeholder="Depart Date" /></div>
-              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="returnSearch" aria-label="Return From" placeholder="dd/mm/yy" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="depart-date" id="departSearch" aria-label="Depart Date" /></div>
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="date" name="return-date" id="returnSearch" aria-label="Return From" /></div>
               <!--div with id for modal activation in jQuery-->
-            <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Additional options" placeholder="Travellers" /></div>                           
+              <div class="col-xs-12 col-md-6 col-lg-2"><input type="text" name="return-date" id="numberTravellersInput" aria-label="Additional options" placeholder="Travellers" /></div>
               <div class="col-xs-12 col-md-6 col-lg-2"><button id="submitSearch">Submit</button></div>
+            </div>
+            <div class="row w-100">
+              <div id="one-way-check" class="col-xs-12 col-md-12 col-lg-12">
+                <input type="checkbox" role="switch" id="oneWay" onclick="disableReturn()" />
+                <label for="oneWay">One-way flight</label>
+              </div>
             </div>
           </form>
         </div>
       </div>
-    </header>    
-  
-  <!-- Modal -->
-  <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="travellersModalLabel">More options</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-            <div class="modal-body">
-                <!-- input form -->
-                <form id="modal-input" class="d-flex flex-column justify-content-center align-items-center">
-                    <div class="row">
-                    <div class="col-md-12"><input type="text" name="depart" id="adults" data-modal="1" aria-label="Depart From" placeholder="Adults" /></div>
-                    <div class="col-md-12"><input type="text" name="destination" id="childs" data-modal="0" aria-label="Destination" placeholder="Children" /></div>
-                    <div class="col-md-12"><input type="text" name="destination" id="infants" data-modal="0" aria-label="Infants" placeholder="Infants" /></div>                 
-                    <div class="col-md-12">
-                        <select name="travel-class" id="flightClass" data-modal="Economy" aria-label="Select Class" placeholder="Select Class">
-                          <option value="economy">Economy</option>
-                          <option value="premium-economy">Premium Economy</option>
-                          <option value="Business-class">Business</option>
-                          <option value="first-class">First Class</option>
-                        </select>                        
-                    </div>
-                    <div class="col-md-12">
-                      <select name="travel-class" id="currency" data-modal="USD" aria-label="Select Class" placeholder="Select Class">
-                        <option value="USD">USD</option>
-                        <option value="GBP">GBP</option>
-                        <option value="EUR">EUR</option>
-                      </select>                        
-                    </div>
-                    <div class="col-md-12"><button id="submit">Submit</button></div>
-                    </div>
-                </form>                
-            </div>
-        </div>
-    </div>
-    </div>
+    </header>
 
+    <!-- Modal -->
+    <div class="modal fade" id="travellersModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="travellersModalLabel">More options</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- input form -->
+            <form id="modal-input" class="d-flex flex-column justify-content-center align-items-center">
+              <div class="row">
+                <div class="col-md-12"><input type="text" name="depart" id="adults" data-modal="1" aria-label="Depart From" placeholder="Adults" /></div>
+                <div class="col-md-12"><input type="text" name="destination" id="childs" data-modal="0" aria-label="Destination" placeholder="Children" /></div>
+                <div class="col-md-12"><input type="text" name="destination" id="infants" data-modal="0" aria-label="Infants" placeholder="Infants" /></div>
+                <div class="col-md-12">
+                  <select name="travel-class" id="flightClass" data-modal="Economy" aria-label="Select Class" placeholder="Select Class">
+                    <option value="economy">Economy</option>
+                    <option value="premium-economy">Premium Economy</option>
+                    <option value="Business-class">Business</option>
+                    <option value="first-class">First Class</option>
+                  </select>
+                </div>
+                <div class="col-md-12">
+                  <select name="travel-class" id="currency" data-modal="USD" aria-label="Select Class" placeholder="Select Class">
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="EUR">EUR</option>
+                  </select>
+                </div>
+                <div class="col-md-12"><button id="submit">Submit</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- popular flights -->
     <section id="popular-flights">
@@ -310,21 +308,33 @@
 
     <!-- Our own javascript -->
     <script src="assets/js/script.js"></script>
-  
+
     <!-- jquery script to launch modal -->
     <script>
-      $(document).ready(function() {
-        $("#numberTravellersInput").click(function() {
-          $("#travellersModal").modal('show');;
-          console.log("modal should open");
+      $(document).ready(function () {
+        $('#numberTravellersInput').click(function () {
+          $('#travellersModal').modal('show');
+          console.log('modal should open');
         });
-      });    
+      });
 
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+
+      // disables return search
+      // if one-way flight is checked
+      let disableReturn = function () {
+        let check = document.getElementById('oneWay');
+        let returnSearch = document.getElementById('returnSearch');
+        if (check.checked) {
+          returnSearch = returnSearch.disabled = true;
+          console.log('One-way flight checked');
+        } else {
+          returnSearch = returnSearch.disabled = false;
+          console.log('One-way flight unchecked');
+        }
+      };
     </script>
-
-
   </body>
 </html>
