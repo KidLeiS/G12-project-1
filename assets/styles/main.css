@@ -325,14 +325,39 @@ form > div.row > div:nth-of-type(6) > button {
   font-size: 1rem;
 }
 
-#flights {
-  background-color: var(--background-colour);
-  border-bottom: 1px solid var(--font-colour);
+.flights:first-of-type {
   border-radius: 0.5em 0.5em 0 0;
+}
+
+.flights {
+  background-color: var(--purple-one);
+  border-bottom: 1px solid var(--font-colour);
   padding: 1rem;
 }
 
-#flights span {
+.flights > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.flights:last-child {
+  border-bottom: none;
+  border-radius: 0 0 0.5em 0.5em;
+}
+
+.flights h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.flights span {
+  font-size: 1rem;
+}
+
+.flights button {
   font-size: 1rem;
 }
 
