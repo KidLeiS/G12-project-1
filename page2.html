@@ -11,84 +11,95 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <!-- external styles -->
     <link rel="stylesheet" href="assets/styles/main.css" />
-    
-    
   </head>
   <!-- body -->
   <body>
-
     <!-- header -->
     <header id="header">
       <div class="container">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <div id="logo" class="d-flex flex-column justify-content-center align-items-center text-center">
+        <div class="d-flex flex-column justify-content-center align-items-start">
+          <div id="logo" class="d-flex flex-column justify-content-center align-items-start text-center">
             <!-- logo -->
             <h1>Flight Flamingo</h1>
-            <p>For all of your flying needs!</p>
+            <p>Thank you for choosing us</p>
           </div>
-       
-        
-
-          
-            </div>
-          </form>
         </div>
       </div>
-    </header>   
+    </header>
 
-      <!-- divs with id - text added from javascript/Local Storage data -->
-      <div class="container">       
-        <div id="priceDisplay"></div>        
-        <div id="departureDateDisplay"></div>
-        <div id="returnDateDisplay"></div>
-        <!-- not working - null
+    <section id="available-flights">
+      <div class="container">
+        <h2>Available flights</h2>
+        <p>Here's a list of the availble flights.</p>
+        <div id="flights" class="row d-flex flex-row justify-content-between align-items-start">
+          <div class="col-xs-12 col-md-3 col-lg-3">
+            <h4>Price:</h4>
+            <span id="priceDisplay"></span>
+          </div>
+          <div class="col-xs-12 col-md-3 col-lg-3">
+            <h4>Departure date:</h4>
+            <span id="departureDateDisplay"></span>
+          </div>
+          <div class="col-xs-12 col-md-3 col-lg-3">
+            <h4>Return date:</h4>
+            <span id="returnDateDisplay"></span>
+          </div>
+          <div class="col-xs-12 col-md-3 col-lg-3">
+            <h4>Airline:</h4>
+            <span id="carriersDisplay"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- divs with id - text added from javascript/Local Storage data -->
+    <div class="container">
+      <div id="priceDisplay"></div>
+      <div id="departureDateDisplay"></div>
+      <div id="returnDateDisplay"></div>
+      <!-- not working - null
            <div id="stopsDisplay"></div> 
         -->
-        <div id="stopsDisplay"></div>
-        <div id="carriersDisplay"></div>
+      <div id="stopsDisplay"></div>
+      <div id="carriersDisplay"></div>
     </div>
-        
 
+    <!----- JavaScript to get data from Localstorag and Display on screen ------>
+    <script>
+      // Get search results in Local Storage
+      var storedSearchResults = JSON.parse(localStorage.getItem('search'));
 
-<!----- JavaScript to get data from Localstorag and Display on screen ------>
-<script>
-  // Get search results in Local Storage
-  var storedSearchResults = JSON.parse(localStorage.getItem("search"));
+      // Check if there are stored search results by checking if array length is greater than 0
+      if (storedSearchResults && storedSearchResults.length > 0) {
+        //if true, create variables from Local Storage data, one by one.
+        var firstResult = storedSearchResults[0];
+        var firstPrice = firstResult.price;
+        var departureDate = firstResult.legs[0].startTime;
+        var returnDate = firstResult.legs[0].endTime;
+        //var layoverVar = firstResult.legs[0].stops;
+        var airlineVar = firstResult.legs[0].carriers;
 
-  // Check if there are stored search results by checking if array length is greater than 0
-  if (storedSearchResults && storedSearchResults.length > 0) {
-    //if true, create variables from Local Storage data, one by one. 
-    var firstResult = storedSearchResults[0];
-    var firstPrice = firstResult.price;
-    var departureDate = firstResult.legs[0].startTime;
-    var returnDate = firstResult.legs[0].endTime;
-    //var layoverVar = firstResult.legs[0].stops;
-    var airlineVar = firstResult.legs[0].carriers;
+        // Update the content of the element with id "priceDisplay"
+        document.getElementById('priceDisplay').textContent = firstPrice;
 
-    // Update the content of the element with id "priceDisplay"
-    document.getElementById("priceDisplay").textContent = "First Price: " + firstPrice;
+        // Update the content of the element with id "departureDateDisplay" "dateDisplay"
+        document.getElementById('departureDateDisplay').textContent = departureDate;
 
-    // Update the content of the element with id "departureDateDisplay" "dateDisplay"
-    document.getElementById("departureDateDisplay").textContent = "Departure Date: " + departureDate;
-      
         // Update the content of the element with id "returnDateDisplay"
-    document.getElementById("returnDateDisplay").textContent = "Return Date: " + returnDate;
+        document.getElementById('returnDateDisplay').textContent = returnDate;
 
-      // Update the content of the element with id "stops" - not working- commented out
-    //document.getElementById("stopsDispla").textContent = "Stops: " + layoverVar;
+        // Update the content of the element with id "stops" - not working- commented out
+        //document.getElementById("stopsDispla").textContent = "Stops: " + layoverVar;
 
-      // Update the content of the element with id "carriersDisplay"
-      document.getElementById("carriersDisplay").textContent = "Airline: " + airlineVar;
+        // Update the content of the element with id "carriersDisplay"
+        document.getElementById('carriersDisplay').textContent = airlineVar;
 
-
-
-    //if no results (storedSearchResults && storedSearchResults.length > 0) run else
-  } else {
-    console.log("No stored search results available.");
-  }
-</script>   
-<!------------------------------------------------------------------------------>
-  
+        //if no results (storedSearchResults && storedSearchResults.length > 0) run else
+      } else {
+        console.log('No stored search results available.');
+      }
+    </script>
+    <!------------------------------------------------------------------------------>
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -99,21 +110,19 @@
 
     <!-- Our own javascript -->
     <script src="assets/js/script.js"></script>
-  
+
     <!-- jquery script to launch modal -->
     <script>
-      $(document).ready(function() {
-        $("#numberTravellersInput").click(function() {
-          $("#travellersModal").modal('show');;
-          console.log("modal should open");
+      $(document).ready(function () {
+        $('#numberTravellersInput').click(function () {
+          $('#travellersModal').modal('show');
+          console.log('modal should open');
         });
-      });    
+      });
 
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
     </script>
-
-
   </body>
 </html>
