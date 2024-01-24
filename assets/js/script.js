@@ -1,6 +1,6 @@
 var apiKey = "65a6dfbcf70ea898ea3cbc71";
 var gifAPI = "r1IRzTmvuQiyU0OWyewv9yK1v5wIPI0r";
-var ftypeSelector = $("#flexSwitchCheckDefault");
+var OW = $("#oneWay");
 var rawSearchResults;
 var searchResults = [];
 var loadingGif;
@@ -19,19 +19,6 @@ fetch(loadingImgURL)
 // Blacks out return date when one way is selected
 $("#returnSearch").attr("disabled",false);
 
-ftypeSelector.on("click",function(event){
-    event.stopPropagation();
-    i = ftypeSelector[0].checked
-
-    if(!i) {
-        $("#returnSearch").attr("disabled",false);
-    } else {
-        $("#returnSearch").attr("disabled",true);
-    };
-
-    console.log(i);
-
-})
 
 var generateResults = function (object) {
     for (var i = 0; i < object.itineraries.length; i++){
@@ -107,7 +94,21 @@ $("#submitSearch").on("click",function(event){
     $("body").prepend(loadingPage);
 
     //Checks if the type selected is one way (false) or return (true), and generates the raw data
-    if(ftypeSelector[0].checked){
+    if(OW[0].checked){
+        // Oneway flight
+        var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
+        console.log(oneWayURL);
+        // Saving API calls
+        fetch(oneWayURL)
+        .then(function(response) {
+            return response.json();
+        }).then(function(data){
+            console.log(data);
+            generateResults(data);
+            storeLocal();
+        });
+
+    } else {
         //Return flight
         var twoWayURL = `https://api.flightapi.io/roundtrip/${apiKey}/${dep}/${arr}/${depDate}/${retDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
         console.log(twoWayURL);
@@ -124,22 +125,6 @@ $("#submitSearch").on("click",function(event){
             storeLocal();
         });
 
-
-
-
-    } else {
-        //One way flight
-        var oneWayURL = `https://api.flightapi.io/onewaytrip/${apiKey}/${dep}/${arr}/${depDate}/${adults}/${childs}/${infants}/${flightClass}/${currency}`;
-        console.log(oneWayURL);
-        // Saving API calls
-        fetch(oneWayURL)
-        .then(function(response) {
-            return response.json();
-        }).then(function(data){
-            console.log(data);
-            generateResults(data);
-            storeLocal();
-        });
 
     }
 });
