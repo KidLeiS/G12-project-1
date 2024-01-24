@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <head>
+    <!-- meta data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- page title -->
+    <title>Flight Flamingo</title>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- external styles -->
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    
+    
+  </head>
+  <!-- body -->
+  <body>
+
+    <!-- header -->
+    <header id="header">
+      <div class="container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div id="logo" class="d-flex flex-column justify-content-center align-items-center text-center">
+                <!-- logo -->
+                <h1>Flight Flamingo</h1>
+                <p>For all of your flying needs!</p>         
+            </div>
+      </div>
+    </header>   
+
+
+ <!-- divs with id - text added from javascript/Local Storage data -->
+   
+
+<!-- Placeholder elements for displaying search results -->
+<div class="result" id="result1"></div>
+<div class="result" id="result2"></div>
+<div class="result" id="result3"></div>
+
+
+ <!-- jquery loaded before inline script-->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
+ <!-- script to sort and display flight data, using jquery-->
+<script>
+$(document).ready(function() {    // Start after document is ready (loaded)
+    var storedSearchResults = JSON.parse(localStorage.getItem("search")); // Get stored search results in Local Storage
+
+    // Check if there are stored search results by checking if array length is greater than 0
+    if (storedSearchResults && storedSearchResults.length > 0) {       
+        storedSearchResults.sort((a, b) => a.price - b.price); // Sort the results based on the price in ascending order
+      
+        var top3Results = storedSearchResults.slice(0, 3); // Get first 3 results
+
+    
+        $.each(top3Results, function(index, result) {  // Iterate/loop over the top 3 results and update the content
+            var resultElement = $("#result" + (index + 1)); // Set variable "resultElement", jQuery targets id#result and adds 1 each loop
+
+            // Update the content of the result element:
+            resultElement.html(  // Using jQuery's html() method to set the HTML content of the result element
+             // Concatenating strings and result data to create HTML content:
+                "<p>Price: " + result.price + "</p>" +   // Displaying the price 
+                "<p>Departure Date: " + (result.legs[0].startTime || "N/A") + "</p>" +  // Get object result.legs[index0].startTime data.  If not available, "N/A" is shown
+                "<p>Return Date: " + (result.legs[0].endTime ||  "One-way Flight") + "</p>" + // "  displaying the return date; If not available, indicating a one-way flight
+                "<p>Airline: " + (result.legs[0].carriers || "N/A") + "</p>"  // displaying the airline. If not available, "N/A" is shown
+            );
+        });
+    } else { 
+        console.log("No stored search results available.");
+    }
+    console.log(top3Results); //Displaying value of top3Results variable in console
+    console.log(storedSearchResults); //Displaying value of storedSearchResults variable in console        
+});
+</script>
+
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Dayjs -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- Our own javascript -->
+    <script src="assets/js/script.js"></script>
+  
+    <!-- jquery script to launch modal -->
+    <script>
+      $(document).ready(function() {
+        $("#numberTravellersInput").click(function() {
+          $("#travellersModal").modal('show');;
+          console.log("modal should open");
+        });
+      });    
+
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+
+
+  </body>
+</html>
