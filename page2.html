@@ -28,7 +28,7 @@
     </header>
 
     <section id="available-flights">
-      <div class="container">
+      <div class="container" id="flightcont">
         <h2>Available flights</h2>
         <p>Here's a list of the availble flights.</p>
         <div class="flights row d-flex flex-row justify-content-evenly align-items-center">
@@ -42,11 +42,14 @@
             <h4>Return date:</h4>
           </div>
           <div class="col-xs-12 col-md-2 col-lg-2">
-            <h4>Airline:</h4>
+            <h4>Departure Airline:</h4>
+          </div>
+          <div class="col-xs-12 col-md-2 col-lg-2">
+            <h4>Return Airline:</h4>
           </div>
           <div class="col-xs-12 col-md-2 col-lg-2"></div>
         </div>
-        <div class="flights row d-flex flex-row justify-content-evenly align-items-center">
+        <!-- <div class="flights row d-flex flex-row justify-content-evenly align-items-center">
           <div class="col-xs-12 col-md-2 col-lg-2">
             <span id="priceDisplay"></span>
           </div>
@@ -62,7 +65,7 @@
           <div class="col-xs-12 col-md-2 col-lg-2">
             <button>Choose Flight</button>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -145,31 +148,71 @@
       // Check if there are stored search results by checking if array length is greater than 0
       if (storedSearchResults && storedSearchResults.length > 0) {
         //if true, create variables from Local Storage data, one by one.
-        var firstResult = storedSearchResults[0];
-        var firstPrice = firstResult.price;
-        var departureDate = dayjs(firstResult.legs[0].startTime).format('DD/MM h:mma');
-        var returnDate = dayjs(firstResult.legs[0].endTime).format('DD/MM h:mma');
-        //var layoverVar = firstResult.legs[0].stops;
-        var airlineVar = firstResult.legs[0].carriers;
+        storedSearchResults.sort((a, b) => a.price - b.price); // Sort the results based on the price in ascending order
+        var top3Results = storedSearchResults.slice(0, 3); // Get first 3 results
+
+        console.log(top3Results);
+        for (var i = 0; i < top3Results.length; i++) {
+          var result = top3Results[i];
+          var fprice = result.price + " " + ccy
+          var departureDate = dayjs(result.legs[0].startTime).format('DD/MM h:mma');
+          var returnDate = dayjs(result.legs[1].endTime).format('DD/MM h:mma');
+          var toAirline = result.legs[0].carriers;
+          var retAirline = result.legs[1].carriers;
+    
+          var bigDiv = $("<div>").attr("class","flights row d-flex flex-row justify-content-evenly align-items-center");
+          $("#flightcont").append(bigDiv)
+
+          var priceItem = $("<div>").attr("class","col-xs-12 col-md-2 col-lg-2")
+          priceItem.append($("<span>").html(fprice));
+          bigDiv.append(priceItem);
+
+          var depDate = $("<div>").attr("class","col-xs-12 col-md-2 col-lg-2")
+          depDate.append($("<span>").html(departureDate));
+          bigDiv.append(depDate);
+
+          var retDate = $("<div>").attr("class","col-xs-12 col-md-2 col-lg-2");
+          retDate.append($("<span>").html(returnDate));
+          bigDiv.append(retDate);
+          
+          var todisplay = $("<div>").attr("class","col-xs-12 col-md-2 col-lg-2");
+          todisplay.append($("<span>").html(toAirline));
+          bigDiv.append(todisplay);
+          
+          var retdisplay = $("<div>").attr("class","col-xs-12 col-md-2 col-lg-2");
+          retdisplay.append($("<span>").html(retAirline));
+          bigDiv.append(retdisplay);
+
+          var submitButton = $("<div>").attr("class","col-xs-12 col-md-2 col-lg-2");
+          submitButton.append($("<button>").html("Submit"));
+          bigDiv.append(submitButton);
+
+        }
+        // var firstResult = storedSearchResults[0];
+        // var firstPrice = firstResult.price;
+        // var departureDate = dayjs(firstResult.legs[0].startTime).format('DD/MM h:mma');
+        // var returnDate = dayjs(firstResult.legs[0].endTime).format('DD/MM h:mma');
+        // //var layoverVar = firstResult.legs[0].stops;
+        // var airlineVar = firstResult.legs[0].carriers;
 
         // Update the content of the element with id "priceDisplay"
-        document.getElementById('priceDisplay').textContent = firstPrice + " " + ccy;
+      //   document.getElementById('priceDisplay').textContent = firstPrice + " " + ccy;
 
-        // Update the content of the element with id "departureDateDisplay" "dateDisplay"
-        document.getElementById('departureDateDisplay').textContent = departureDate;
+      //   // Update the content of the element with id "departureDateDisplay" "dateDisplay"
+      //   document.getElementById('departureDateDisplay').textContent = departureDate;
 
-        // Update the content of the element with id "returnDateDisplay"
-        document.getElementById('returnDateDisplay').textContent = returnDate;
+      //   // Update the content of the element with id "returnDateDisplay"
+      //   document.getElementById('returnDateDisplay').textContent = returnDate;
 
-        // Update the content of the element with id "stops" - not working- commented out
-        //document.getElementById("stopsDispla").textContent = "Stops: " + layoverVar;
+      //   // Update the content of the element with id "stops" - not working- commented out
+      //   //document.getElementById("stopsDispla").textContent = "Stops: " + layoverVar;
 
-        // Update the content of the element with id "carriersDisplay"
-        document.getElementById('carriersDisplay').textContent = airlineVar;
+      //   // Update the content of the element with id "carriersDisplay"
+      //   document.getElementById('carriersDisplay').textContent = airlineVar;
 
-        //if no results (storedSearchResults && storedSearchResults.length > 0) run else
-      } else {
-        console.log('No stored search results available.');
+      //   //if no results (storedSearchResults && storedSearchResults.length > 0) run else
+      // } else {
+      //   console.log('No stored search results available.');
       }
     </script>
     <!------------------------------------------------------------------------------>
