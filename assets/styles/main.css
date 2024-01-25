@@ -377,6 +377,10 @@ h2.accordion-header {
   background-color: var(--background-colour);
 }
 
+footer {
+  font-size: 1rem;
+}
+
 /* screens bigger than 576px */
 @media screen and (max-width: 576px) {
   form > div.row > div:nth-of-type(1) > input {
