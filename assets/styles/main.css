@@ -565,7 +565,7 @@ h2.accordion-header {
   }
 
   header#header {
-    padding: 7rem 0;
+    padding: 10rem 0;
   }
 
   section#about-us,
@@ -622,5 +622,5 @@ h2.accordion-header {
 }
 
 .navbar-brand {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
