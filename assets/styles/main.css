@@ -612,3 +612,15 @@ h2.accordion-header {
   align-items: center;
   justify-content: center;
 }
+
+.nav-item a {
+  font-size: 15px;
+}
+
+#logo {
+  height: 40px;
+}
+
+.navbar-brand {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}

@@ -10,9 +10,9 @@ The application allows a user to travel around the world. Booking a flight from 
 
 This was a our first project within the EdX bootcamp where we had set teams to work within. This has given us in insight to how the industry how working as part of a team.
 
-## Table of Contents (Optional)
+## Table of Contents
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+Please follow the following links to navigate the Readme:
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -21,13 +21,17 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+No installation is required, just boot up our website via the following [link](https://kidleis.github.io/flight-flamingo/)
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+To use our website, please access it via the above link in the installation section.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+Afterwards, enter the 3 letter IATA airport code for your start and end destination airports. For instance, London Heathrow Airport is LHR and New York John F Kennedy Airport is JFK.
+
+Then, select the dates and open the modal to choose your optional selections (optional)
+
+Afterwards press search, and voila! The results page should like this:
 
 ![alt text](assets/images/screenshot.png)
 
