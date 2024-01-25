@@ -25,46 +25,45 @@ No installation is required, just boot up our website via the following [link](h
 
 ## Usage
 
-To use our website, please access it via the above link in the installation section.
+To use our website, please access it via the above link in the installation section. The page should look like the following:
+![An image of the initial website](assets/images/FF1.png)
 
 Afterwards, enter the 3 letter IATA airport code for your start and end destination airports. For instance, London Heathrow Airport is LHR and New York John F Kennedy Airport is JFK.
 
 Then, select the dates and open the modal to choose your optional selections (optional)
 
 Afterwards press search, and voila! The results page should like this:
+![An image of the results page](assets/images/FF2.png)
 
-![alt text](assets/images/screenshot.png)
+There are also some display content further down the page, such as popular travel destinations and an FAQ.
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+This project was done as a group project by Eric Shen, Curtis Bowen and Adrian Lamour
+- [Eric's Github](https://github.com/KidLeiS)
+- [Curtis's Github](https://github.com/mvpcurtis)
+- [Adrian's Github](https://github.com/add101)
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+We also used a variety of APIs, including
+- [Flight API](https://www.flightapi.io/)
+- [Giphy](https://developers.giphy.com/)
+- [DayJS](https://day.js.org/en/)
+- [JQuery UI](https://jqueryui.com/)
+- [JQuery](https://jquery.com/)
 
-If you followed tutorials, include links to those here as well.
+We followed relevant documentation on those API websites.
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+Our project is done on a GNU GPL v3 license. Please read the [license](LICENSE) to see what you can or cannot do with the work
 
----
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+## Future Development
 
-## Badges
+We have a variety of work unfinished on the website. This include:
+- Building a auto suggestion tool for the 3 letter IATA code
+- Building a auto complete feature to automatically populate or search for trips based off popular destination selected
+- And many more...
 
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+If you would like to contribute, please get in touch!
 
-Badges aren't necessary, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute to it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
