@@ -72,7 +72,6 @@ var storeLocal = function (){
 };
 
 
-
 // Logic when the search is submitted
 $("#submitSearch").on("click",function(event){
     event.preventDefault();
@@ -88,6 +87,8 @@ $("#submitSearch").on("click",function(event){
 
     var loadingImg = $("<img>").attr("src", loadingGif);
     var loadingPage = $("<div>").attr("class", "loading");
+
+    localStorage.setItem("ccy", currency);
 
     loadingPage.append(loadingImg);
 
