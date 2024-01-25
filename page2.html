@@ -149,7 +149,7 @@
       if (storedSearchResults && storedSearchResults.length > 0) {
         //if true, create variables from Local Storage data, one by one.
         storedSearchResults.sort((a, b) => a.price - b.price); // Sort the results based on the price in ascending order
-        var top3Results = storedSearchResults.slice(0, 3); // Get first 3 results
+        var top3Results = storedSearchResults.slice(0, 10); // Get first 10 results
 
         console.log(top3Results);
         for (var i = 0; i < top3Results.length; i++) {
